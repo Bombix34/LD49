@@ -7,6 +7,8 @@ public class BuildingData : ScriptableObject
 {
     public Sprite sprite;
 
+    public BuildingTypes buildingType;
+
     public List<BuildingModificator> buildingModificator;
 }
 
@@ -15,4 +17,16 @@ public struct BuildingModificator
 {
     public ResourcesTypes type;
     public int modificator;
+}
+
+public enum BuildingTypes
+{
+    house,
+    appartments,
+    office,
+    mall,
+    factory,
+    powerPlant,
+    cinema,
+    casino
 }

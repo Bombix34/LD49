@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private SpriteRenderer sprite;
+    public bool isEmpty = true;
+
+    private BuildingData currentBuilding;
+
+    public int posX, posY;
+
+    private void Awake()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeBuilding(BuildingData newBuilding)
     {
-        
+        sprite.sprite = newBuilding.sprite;
+        currentBuilding = newBuilding;
     }
 }

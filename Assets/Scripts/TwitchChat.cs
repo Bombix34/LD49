@@ -17,10 +17,12 @@ public class TwitchChat : MonoBehaviour
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
 
     public Text chatBox;
+    public BoardManager boardManager;
 
     void Start()
     {
         Connect();
+        GameInputs("!house J4");
     }
 
     void Update()
@@ -74,17 +76,93 @@ public class TwitchChat : MonoBehaviour
     {
         if (ChatInputs.Contains("!house"))
         {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 5);
+            boardManager.SpawnBuilding(position, BuildingTypes.house);
         }
-        if (ChatInputs.ToLower() == "!left")
+        else if (ChatInputs.Contains("!appartments"))
         {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 11);
+            boardManager.SpawnBuilding(position, BuildingTypes.appartments);
+        }
+        else if (ChatInputs.Contains("!office"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 6);
+            boardManager.SpawnBuilding(position, BuildingTypes.office);
+        }
+        else if (ChatInputs.Contains("!mall"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 4);
+            boardManager.SpawnBuilding(position, BuildingTypes.mall);
+        }
+        else if (ChatInputs.Contains("!factory"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 7);
+            boardManager.SpawnBuilding(position, BuildingTypes.factory);
+        }
+        else if (ChatInputs.Contains("!powerplant"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 10);
+            boardManager.SpawnBuilding(position, BuildingTypes.powerPlant);
+        }
+        else if (ChatInputs.Contains("!cinema"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 6);
+            boardManager.SpawnBuilding(position, BuildingTypes.cinema);
+        }
+        else if (ChatInputs.Contains("!casino"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 6);
+            boardManager.SpawnBuilding(position, BuildingTypes.casino);
         }
     }
 
     private Vector2 GetPositionFromMessage(string message, int wordLenght)
     {
-        var splitPoint = message.IndexOf("!", 1);
-        var chatName = message.Substring(0, splitPoint + wordLenght);
-        chatName = chatName.Substring(1);
-        return Vector2.zero;
+        int x=-1;
+        int y = 0;
+        var infoPosition = message.Substring(2 + wordLenght);
+        string posX = infoPosition.Substring(0, 1);
+        switch (posX)
+        {
+            case "A":
+                x = 0;
+                break;
+            case "B":
+                x = 1;
+                break;
+            case "C":
+                x = 2;
+                break;
+            case "D":
+                x = 3;
+                break;
+            case "E":
+                x = 4;
+                break;
+            case "F":
+                x = 5;
+                break;
+            case "G":
+                x = 6;
+                break;
+            case "H":
+                x = 7;
+                break;
+            case "I":
+                x = 8;
+                break;
+            case "J":
+                x = 9;
+                break;
+            case "K":
+                x = 10;
+                break;
+            case "L":
+                x = 11;
+                break;
+        }
+        string infoPositionY = infoPosition.Substring(1);
+        y = int.Parse(infoPositionY);
+        return new Vector2(x, y);
     }
 }
