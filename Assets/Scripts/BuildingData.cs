@@ -14,5 +14,5 @@ public class BuildingData : ScriptableObject
 public struct BuildingModificator
 {
     public ResourcesTypes type;
-    public int modificator;
+    public float modificator;
 }
