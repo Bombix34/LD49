@@ -449,9 +449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e48b365e288b9e4082d5c4ebaa75a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: 
-  password: 
-  channelName: 
+  username: bicephal
+  password: oauth:pnhjr49qrrecl11qkhs2vy2h9wqpbj
+  channelName: bicephal
   chatBox: {fileID: 1175063952}
   player: {fileID: 661844163}
   blueMat: {fileID: 2100000, guid: 54cf786942015c04f8caca15b55428a8, type: 2}
