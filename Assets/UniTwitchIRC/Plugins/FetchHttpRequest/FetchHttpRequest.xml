@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FetchHttpRequest</name>
+    </assembly>
+    <members>
+        <member name="T:FetchHttpRequest.FetchExtensions">
+            <summary>
+            Extension methods to enable and expose async functionality
+            </summary>
+        </member>
+        <member name="M:FetchHttpRequest.FetchExtensions.GetAwaiter(UnityEngine.Networking.UnityWebRequestAsyncOperation)">
+            <summary>
+            Gets an awaiter used to await this Task.
+            </summary>
+            <param name="asyncOp">Asynchronous operation object returned from UnityWebRequest.SendWebRequest()</param>
+            <returns></returns>
+        </member>
+        <member name="T:FetchHttpRequest.FetchAwaiter">
+            <summary>
+            Awaiter to allow Unity Web Request to work with async task
+            </summary>
+        </member>
+        <member name="P:FetchHttpRequest.FetchAwaiter.IsCompleted">
+            <summary>
+            Gets a value that indicates whether the asynchronous task has completed
+            </summary>
+        </member>
+        <member name="M:FetchHttpRequest.FetchAwaiter.#ctor(UnityEngine.Networking.UnityWebRequestAsyncOperation)">
+            <summary>
+            Create a new awaiter
+            </summary>
+            <param name="operation">Asynchronous operation object returned from UnityWebRequest.SendWebRequest()</param>
+        </member>
+        <member name="M:FetchHttpRequest.FetchAwaiter.OnCompleted(System.Action)">
+            <summary>
+            Schedules the continuation action that's invoked when the instance completes
+            </summary>
+            <param name="continuation">The action to invoke when the operation completes</param>
+        </member>
+        <member name="M:FetchHttpRequest.FetchAwaiter.GetResult">
+            <summary>
+            Ends the wait for the completion of the asynchronous task
+            </summary>
+        </member>
+        <member name="T:FetchHttpRequest.Fetch">
+            <summary>
+            Makes HTTP request 
+            </summary>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.ParseJson``1(System.IO.Stream)">
+            <summary>
+            Parses the JSON stream into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="stream">Stream to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.ParseJsonAsync``1(System.IO.Stream)">
+            <summary>
+            Parses the JSON stream into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="stream">Stream to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.ParseJson``1(System.String)">
+            <summary>
+            Parses the JSON string into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="json">json string to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.Request``1(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[],System.Action{System.Net.HttpWebRequest},System.Net.SecurityProtocolType)">
+            <summary>
+            Makes an HTTP Request to get JSON
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">Url to make the request to get the JSON</param>
+            <param name="headers">Callback to set headers for the current request</param>
+            <param name="modifyRequest">Web request class to provide the means of making the request</param>
+            <param name="securityProtocolType">Create SSL/TLS secure channel (Use SecurityProtocolType.Ssl3 if needed for compatibility reasons)</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.Request``1(System.String,System.Action{System.Net.HttpWebRequest},System.Net.SecurityProtocolType)">
+            <summary>
+            Makes an HTTP Request to get JSON
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">Url to make the request to get the JSON</param>
+            <param name="setHeaders">Callback to set headers for the current request</param>
+            <param name="securityProtocolType">Create SSL/TLS secure channel (Use SecurityProtocolType.Ssl3 if needed for compatibility reasons)</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.RequestAsync``1(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[],System.Action{System.Net.HttpWebRequest},System.Net.SecurityProtocolType)">
+            <summary>
+            Makes an HTTP Request to get JSON
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">Url to make the request to get the JSON</param>
+            <param name="headers">Callback to set headers for the current request</param>
+            <param name="modifyRequest">Web request class to provide the means of making the request</param>
+            <param name="securityProtocolType">Create SSL/TLS secure channel (Use SecurityProtocolType.Ssl3 if needed for compatibility reasons)</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.Fetch.RequestAsync``1(System.String,System.Action{System.Net.HttpWebRequest},System.Net.SecurityProtocolType)">
+            <summary>
+            Makes an HTTP Request to get JSON
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">Url to make the request to get the JSON</param>
+            <param name="setHeaders">Callback to set headers for the current request</param>
+            <param name="securityProtocolType">Create SSL/TLS secure channel (Use SecurityProtocolType.Ssl3 if needed for compatibility reasons)</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="T:FetchHttpRequest.UnityFetch">
+            <summary>
+            Make web request using Unity Web Request 
+            <para>Tailored for Twitch API</para>
+            </summary>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.ParseJson``1(System.IO.Stream)">
+            <summary>
+            Parses the JSON stream into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="stream">Stream to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.ParseJsonAsync``1(System.IO.Stream)">
+            <summary>
+            Parses the JSON stream into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="stream">Stream to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.ParseJson``1(System.String)">
+            <summary>
+            Parses the JSON text into a data structure format
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="json">JSON text to parse</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.ParseJson(System.String)">
+            <summary>
+            Parses the JSON text into a data structure format
+            </summary>
+            <param name="json">JSON text to parse</param>
+            <returns>dynamic JObject.Parse(json) object</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.GetRequestAsync(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Get UnityWebRequest
+            </summary>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>dynamic JObject.Parse(json) object</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.GetRequestAsync``1(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Get UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.PostRequestAsync``1(System.String,UnityEngine.WWWForm,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Post UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="formData">Helper class to generate form data to post to web servers using the UnityWebRequest or WWW classes.</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.MakeRequestAsync(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>dynamic JObject.Parse(json) object</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.MakeRequestAsync``1(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>       
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.UnityWebRequestAsync``1(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.GetRequestEnumerator(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Get UnityWebRequest
+            </summary>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns></returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.GetRequestEnumerator``1(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Get UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.PostRequestEnumerator``1(System.String,UnityEngine.WWWForm,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a Post UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="url">A fully qualified url endpoint</param>
+            <param name="formData">Helper class to generate form data to post to web servers using the UnityWebRequest or WWW classes.</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.UnityWebRequestAsync(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>dynamic JObject.Parse(json) object</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.UnityWebRequestEnumerator``1(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>
+            <typeparam name="T">Type of data structure to parse JSON</typeparam>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>Type safe parsed JSON data</returns>
+        </member>
+        <member name="M:FetchHttpRequest.UnityFetch.UnityWebRequestEnumerator(UnityEngine.Networking.UnityWebRequest,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Makes a UnityWebRequest
+            </summary>
+            <param name="unityRequest">UnityWebRequest object</param>
+            <param name="headers">any headers needed for a valid request</param>
+            <returns>dynamic JObject.Parse(json) object</returns>
+        </member>
+    </members>
+</doc>
