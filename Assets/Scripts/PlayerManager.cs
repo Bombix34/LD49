@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D body;
 
     [Header("MOVEMENT")]
+    public float[] movementAngles;
+    private int index = 0;
     public float movementSpeed = 1f;
     private Vector2 direction = Vector2.up;
     private float angle = 0;
@@ -23,11 +25,17 @@ public class PlayerManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.D))
         {
-            angle += 0.5f;
+            index++;
+            if (index > movementAngles.Length)
+                index = 0;
+            angle = movementAngles[index];
         }
         else if(Input.GetKeyDown(KeyCode.Q))
         {
-            angle -= 0.5f;
+            index--;
+            if (index < 0)
+                index = movementAngles.Length - 1;
+            angle = movementAngles[index];
         }
         Vector2 newDirection =new Vector2( Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
         direction = Vector2.Lerp(direction, newDirection, Time.deltaTime);
