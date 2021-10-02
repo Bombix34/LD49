@@ -17,8 +17,7 @@ public class TwitchChat : MonoBehaviour
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
 
     public Text chatBox;
-    public GameObject player;
-    public Material blueMat, greenMat;
+    public PlayerManager player;
 
     void Start()
     {
@@ -74,14 +73,14 @@ public class TwitchChat : MonoBehaviour
 
     private void GameInputs(string ChatInputs)
     {
-        if (ChatInputs.ToLower() == "blue")
+        if (ChatInputs.ToLower() == "!right")
         {
-            player.GetComponent<Renderer>().material = blueMat;
+            player.MoveRight();
         }
 
-        if (ChatInputs.ToLower() == "green")
+        if (ChatInputs.ToLower() == "!left")
         {
-            player.GetComponent<Renderer>().material = greenMat;
+            player.MoveLeft();
         }
     }
 }

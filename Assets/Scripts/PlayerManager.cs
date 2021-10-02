@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.D))
         {
             MoveRight();
@@ -31,6 +32,7 @@ public class PlayerManager : MonoBehaviour
         {
             MoveLeft();
         }
+        */
         Vector2 newDirection =new Vector2( Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
         direction = Vector2.Lerp(direction, newDirection, Time.deltaTime);
         body.velocity = direction * movementSpeed;
