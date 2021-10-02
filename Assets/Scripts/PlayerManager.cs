@@ -18,24 +18,18 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = GetComponentInChildren<Rigidbody2D>();
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.D))
         {
-            index++;
-            if (index > movementAngles.Length)
-                index = 0;
-            angle = movementAngles[index];
+            MoveRight();
         }
         else if(Input.GetKeyDown(KeyCode.Q))
         {
-            index--;
-            if (index < 0)
-                index = movementAngles.Length - 1;
-            angle = movementAngles[index];
+            MoveLeft();
         }
         Vector2 newDirection =new Vector2( Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
         direction = Vector2.Lerp(direction, newDirection, Time.deltaTime);
@@ -43,5 +37,21 @@ public class PlayerManager : MonoBehaviour
         float angleRotation = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
         Quaternion newRotation = Quaternion.Euler(new Vector3(0, 0, angleRotation));
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
+    }
+
+    public void MoveRight()
+    {
+        index++;
+        if (index >= movementAngles.Length)
+            index = 0;
+        angle = movementAngles[index];
+    }
+
+    public void MoveLeft()
+    {
+        index--;
+        if (index < 0)
+            index = movementAngles.Length - 1;
+        angle = movementAngles[index];
     }
 }

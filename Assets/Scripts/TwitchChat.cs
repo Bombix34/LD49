@@ -31,7 +31,6 @@ public class TwitchChat : MonoBehaviour
         {
             Connect();
         }
-
         ReadChat();
     }
 
