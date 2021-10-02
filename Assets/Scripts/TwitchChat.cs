@@ -17,7 +17,6 @@ public class TwitchChat : MonoBehaviour
     public string username, password, channelName; //Get the password from https://twitchapps.com/tmi
 
     public Text chatBox;
-    public PlayerManager player;
 
     void Start()
     {
@@ -66,21 +65,26 @@ public class TwitchChat : MonoBehaviour
                 chatBox.text = chatBox.text + "\n" + String.Format("{0}: {1}", chatName, message);
 
                 //Run the instructions to control the game!
-                GameInputs(message);
+                GameInputs(message.ToLower());
             }
         }
     }
 
     private void GameInputs(string ChatInputs)
     {
-        if (ChatInputs.ToLower() == "!right")
+        if (ChatInputs.Contains("!house"))
         {
-            player.MoveRight();
         }
-
         if (ChatInputs.ToLower() == "!left")
         {
-            player.MoveLeft();
         }
+    }
+
+    private Vector2 GetPositionFromMessage(string message, int wordLenght)
+    {
+        var splitPoint = message.IndexOf("!", 1);
+        var chatName = message.Substring(0, splitPoint + wordLenght);
+        chatName = chatName.Substring(1);
+        return Vector2.zero;
     }
 }
