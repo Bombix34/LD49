@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MallData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e58c1dfde1f33614c8a1d691c1c5ca0e, type: 3}
+  buildingType: 3
   buildingModificator:
   - type: 1
     modificator: 0.1

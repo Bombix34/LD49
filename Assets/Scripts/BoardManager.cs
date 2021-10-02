@@ -41,6 +41,7 @@ public class BoardManager : MonoBehaviour
         if (curTile == null || !curTile.isEmpty)
             return;
         curTile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == type));
+        curTile.gameObject.name = type.ToString();
     }
     
 }

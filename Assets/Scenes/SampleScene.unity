@@ -389,6 +389,7 @@ MonoBehaviour:
   password: oauth:pnhjr49qrrecl11qkhs2vy2h9wqpbj
   channelName: bicephal
   chatBox: {fileID: 1175063952}
+  boardManager: {fileID: 1512856609}
 --- !u!4 &901278945
 Transform:
   m_ObjectHideFlags: 0
@@ -706,6 +707,15 @@ MonoBehaviour:
   column: 10
   tilePrefab: {fileID: 6479764559442313546, guid: 69628c7dcb811624d99303f15272eaaa,
     type: 3}
+  buildingDatas:
+  - {fileID: 11400000, guid: dbd656e2d9e2944438f40fca444f8ad8, type: 2}
+  - {fileID: 11400000, guid: e4f6c9d10a61b0b4485db86eed99c971, type: 2}
+  - {fileID: 11400000, guid: 3248387b21678584f888288f22e73777, type: 2}
+  - {fileID: 11400000, guid: a55f6e0a3d825254fb023360ac1ca257, type: 2}
+  - {fileID: 11400000, guid: 721de924e46c78446959bae2c493cbdf, type: 2}
+  - {fileID: 11400000, guid: 91b06451c7cae704b9b20a31a68ca3d4, type: 2}
+  - {fileID: 11400000, guid: 8f99d97978c832c41bf824007266031d, type: 2}
+  - {fileID: 11400000, guid: 9be5a743c6113ac44920cdf617b563d8, type: 2}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0

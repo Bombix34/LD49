@@ -22,7 +22,16 @@ public class TwitchChat : MonoBehaviour
     void Start()
     {
         Connect();
+        /*
         GameInputs("!house J4");
+        GameInputs("!appartments A2");
+        GameInputs("!office A5");
+        GameInputs("!mall C2");
+        GameInputs("!factory G6");
+        GameInputs("!powerplant D6");
+        GameInputs("!cinema H7");
+        GameInputs("!casino A9");
+        */
     }
 
     void Update()

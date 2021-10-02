@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FactoryData
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 6d4533bfacc92134aa7a19ffa7b64e2f, type: 3}
+  buildingType: 4
   buildingModificator:
   - type: 2
     modificator: 0.1
