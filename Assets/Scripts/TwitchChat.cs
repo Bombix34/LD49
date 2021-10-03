@@ -161,6 +161,11 @@ public class TwitchChat : MonoBehaviour
             Vector2 position = GetPositionFromMessage(ChatInputs, 6);
             boardManager.SpawnBuilding(position, BuildingTypes.casino);
         }
+        else if (ChatInputs.Contains("!burn"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 4);
+            boardManager.RemoveBuilding(position);
+        }
     }
 
     private Vector2 GetPositionFromMessage(string message, int wordLenght)
