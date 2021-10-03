@@ -48,7 +48,19 @@ public class BoardManager : MonoBehaviour
         curTile.gameObject.name = type.ToString();
         ResourcesManager.Instance.AddBuilding(curData);
     }
-    
+
+    public void RemoveBuilding(Vector2 position)
+    {
+        int posX = (int)position.x;
+        int posY = (int)position.y;
+        TileManager curTile = tiles.Find(x => x.posX == posX && x.posY == posY);
+        if (curTile == null || curTile.isEmpty)
+            return;
+        BuildingData currentBuilding = curTile.CurrentBuilding;
+        curTile.RemoveBuilding();
+        ResourcesManager.Instance.RemoveBuilding(currentBuilding);
+    }
+
 }
 
 
