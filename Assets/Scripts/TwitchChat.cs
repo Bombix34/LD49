@@ -41,6 +41,10 @@ public class TwitchChat : MonoBehaviour
             Connect();
         }
         ReadChat();
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameInputs("!house J"+UnityEngine.Random.Range(1,10));
+        }
     }
 
     private void Connect()

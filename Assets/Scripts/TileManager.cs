@@ -18,6 +18,7 @@ public class TileManager : MonoBehaviour
 
     public void ChangeBuilding(BuildingData newBuilding)
     {
+        isEmpty = false;
         sprite.sprite = newBuilding.sprite;
         currentBuilding = newBuilding;
     }

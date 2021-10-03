@@ -40,8 +40,10 @@ public class BoardManager : MonoBehaviour
         TileManager curTile = tiles.Find(x => x.posX == posX && x.posY == posY);
         if (curTile == null || !curTile.isEmpty)
             return;
-        curTile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == type));
+        BuildingData curData = buildingDatas.Find(x => x.buildingType == type);
+        curTile.ChangeBuilding(curData);
         curTile.gameObject.name = type.ToString();
+        ResourcesManager.Instance.AddBuilding(curData);
     }
     
 }
