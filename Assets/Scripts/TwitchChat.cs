@@ -36,7 +36,7 @@ public class TwitchChat : MonoBehaviour
 
     void Update()
     {
-        if (!twitchClient.Connected)
+        if (twitchClient == null || !twitchClient.Connected)
         {
             Connect();
         }
@@ -76,7 +76,7 @@ public class TwitchChat : MonoBehaviour
                 chatBox.text = chatBox.text + "\n" + String.Format("{0}: {1}", chatName, message);
 
                 //Run the instructions to control the game!
-                GameInputs(message.ToLower());
+                GameInputs(message);
             }
         }
     }
@@ -171,7 +171,7 @@ public class TwitchChat : MonoBehaviour
                 break;
         }
         string infoPositionY = infoPosition.Substring(1);
-        y = int.Parse(infoPositionY);
+        y = int.Parse(infoPositionY)+1;
         return new Vector2(x, y);
     }
 }
