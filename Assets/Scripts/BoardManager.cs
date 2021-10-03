@@ -28,7 +28,6 @@ public class BoardManager : MonoBehaviour
             if (IsBoardFull())
             {
                 GameManager.Instance.WinGame();
-                GameManager.Instance.IsGameFinished = true;
             }
         }
     }
