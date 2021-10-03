@@ -7,6 +7,9 @@ public class BoardManager : MonoBehaviour
     private List<TileManager> tiles;
     public int row, column;
 
+    public float padX, padY;
+    public float indexPadX, indexPadY;
+
     public GameObject tilePrefab;
 
     [Header("BUILDINGS")]
@@ -25,7 +28,7 @@ public class BoardManager : MonoBehaviour
             for(int j = 0; j < row; ++j)
             {
                 GameObject currentTile = Instantiate(tilePrefab, this.transform);
-                currentTile.transform.position = new Vector2(i, j);
+                currentTile.transform.position = new Vector2(i*padX + (j*indexPadX), i*padY+(j*indexPadY));
                 currentTile.GetComponent<TileManager>().posX = i;
                 currentTile.GetComponent<TileManager>().posY = j;
                 tiles.Add(currentTile.GetComponent<TileManager>());

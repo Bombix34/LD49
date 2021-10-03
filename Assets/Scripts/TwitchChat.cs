@@ -51,7 +51,7 @@ public class TwitchChat : MonoBehaviour
         PingServer();
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameInputs("!house J"+UnityEngine.Random.Range(1,10));
+           // GameInputs("!house J" +UnityEngine.Random.Range(1,10));
         }
     }
 
@@ -110,7 +110,7 @@ public class TwitchChat : MonoBehaviour
 
     private void CountActivePlayers()
     {
-        if(Time.frameCount % 120 == 0)
+        if(Time.frameCount % 1200 == 0)
         {
             ResourcesManager.Instance.UpdateActivePlayers(activePlayers.Count);
             activePlayers.Clear();
