@@ -29,6 +29,5 @@ public enum BuildingTypes
     powerPlant,
     cinema,
     casino,
-    road,
-    goal_road
+    road
 }
