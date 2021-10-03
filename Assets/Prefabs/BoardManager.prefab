@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5586294457526665823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5586294457526665824}
+  - component: {fileID: 5586294457526665825}
+  m_Layer: 0
+  m_Name: BoardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5586294457526665824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586294457526665823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5586294457526665825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586294457526665823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cedd6b5e071d64481dc24547172b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 10
+  column: 10
+  padX: 3.625
+  padY: -1.8125
+  indexPadX: 3.625
+  indexPadY: 1.8125
+  tilePrefab: {fileID: 6479764559442313546, guid: 69628c7dcb811624d99303f15272eaaa,
+    type: 3}
+  buildingDatas:
+  - {fileID: 11400000, guid: dbd656e2d9e2944438f40fca444f8ad8, type: 2}
+  - {fileID: 11400000, guid: e4f6c9d10a61b0b4485db86eed99c971, type: 2}
+  - {fileID: 11400000, guid: 3248387b21678584f888288f22e73777, type: 2}
+  - {fileID: 11400000, guid: a55f6e0a3d825254fb023360ac1ca257, type: 2}
+  - {fileID: 11400000, guid: 721de924e46c78446959bae2c493cbdf, type: 2}
+  - {fileID: 11400000, guid: 91b06451c7cae704b9b20a31a68ca3d4, type: 2}
+  - {fileID: 11400000, guid: 8f99d97978c832c41bf824007266031d, type: 2}
+  - {fileID: 11400000, guid: 9be5a743c6113ac44920cdf617b563d8, type: 2}
+  - {fileID: 11400000, guid: 6aaa9e9e501efab4584e3f0219e831ce, type: 2}
+  roadDatas:
+  - value: 0
+    sprite: {fileID: 21300000, guid: eb51356609462734b861451a1b01cb6c, type: 3}
+    scaleX: 1
+  - value: 6
+    sprite: {fileID: 21300000, guid: 090db742bf38866498936a9a6fbc4b38, type: 3}
+    scaleX: 1
+  - value: 10
+    sprite: {fileID: 21300000, guid: 6c9379c6932ec4b42bc038c01b3f1c11, type: 3}
+    scaleX: 1
+  - value: 3
+    sprite: {fileID: 21300000, guid: 8e3257a47333b584c8773086af1183b4, type: 3}
+    scaleX: 4
+  - value: 12
+    sprite: {fileID: 21300000, guid: 2ae46141c2fdd1647a71a5a910689ebc, type: 3}
+    scaleX: 1
+  - value: 17
+    sprite: {fileID: 21300000, guid: 81eaf5763784afc408b11cfb7124bbb2, type: 3}
+    scaleX: 1
+  - value: 1
+    sprite: {fileID: 21300000, guid: 037b80a75150ab6408ae1d1b24f4c3d1, type: 3}
+    scaleX: 1
+  - value: 5
+    sprite: {fileID: 21300000, guid: 565ed8ddb54b7724f96b1133aa997191, type: 3}
+    scaleX: 1
+  - value: 9
+    sprite: {fileID: 21300000, guid: 1de3f637dc3e4b84bbe68d50a75082c6, type: 3}
+    scaleX: 1
+  - value: 2
+    sprite: {fileID: 21300000, guid: d9189720e48ec8b48a4c28d6aef835b4, type: 3}
+    scaleX: 1
+  - value: 11
+    sprite: {fileID: 21300000, guid: f9e150f9d3fe93d4ba62199fd500229c, type: 3}
+    scaleX: 1
+  - value: 14
+    sprite: {fileID: 21300000, guid: a241e7616f62811498bc8f473163def1, type: 3}
+    scaleX: 1
+  - value: 7
+    sprite: {fileID: 21300000, guid: 39de5755d1f69a342b93a6e06fedd853, type: 3}
+    scaleX: 1
+  - value: 15
+    sprite: {fileID: 21300000, guid: 26a0bf3f0a6c9e34f86f01dd72d29a8b, type: 3}
+    scaleX: 1
+  - value: 16
+    sprite: {fileID: 21300000, guid: b683b319260891c4a9b40b1efca25bbc, type: 3}
+    scaleX: 1
+  - value: 8
+    sprite: {fileID: 21300000, guid: d15635c948597974ebc8960359633f3a, type: 3}
+    scaleX: 1
