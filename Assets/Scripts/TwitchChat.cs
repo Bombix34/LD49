@@ -93,7 +93,7 @@ public class TwitchChat : MonoBehaviour
                 chatBox.text = chatBox.text + "\n" + String.Format("{0}: {1}", chatName, message);
 
                 //Run the instructions to control the game!
-                GameInputs(message);
+                GameInputs(message.ToLower());
             }
         }
     }
@@ -171,40 +171,40 @@ public class TwitchChat : MonoBehaviour
         string posX = infoPosition.Substring(0, 1);
         switch (posX)
         {
-            case "A":
+            case "a":
                 x = 0;
                 break;
-            case "B":
+            case "b":
                 x = 1;
                 break;
-            case "C":
+            case "c":
                 x = 2;
                 break;
-            case "D":
+            case "d":
                 x = 3;
                 break;
-            case "E":
+            case "e":
                 x = 4;
                 break;
-            case "F":
+            case "f":
                 x = 5;
                 break;
-            case "G":
+            case "g":
                 x = 6;
                 break;
-            case "H":
+            case "h":
                 x = 7;
                 break;
-            case "I":
+            case "i":
                 x = 8;
                 break;
-            case "J":
+            case "j":
                 x = 9;
                 break;
-            case "K":
+            case "k":
                 x = 10;
                 break;
-            case "L":
+            case "l":
                 x = 11;
                 break;
         }
