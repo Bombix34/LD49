@@ -22,7 +22,7 @@ public class ResourceSlider : MonoBehaviour
         else
             fillArea.color = Color.red;
         slider.DORewind();
-        slider.DOValue(resourceValue, 0.2f)
+        slider.DOValue(resourceValue, 0.3f)
             .OnComplete(() => fillArea.color = Color.white);
     }
 }

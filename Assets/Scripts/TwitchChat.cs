@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class TwitchChat : MonoBehaviour
 {
+    public List<string> activePlayers;
 
     private TcpClient twitchClient;
     private StreamReader reader;
@@ -19,7 +20,12 @@ public class TwitchChat : MonoBehaviour
     public Text chatBox;
     public BoardManager boardManager;
 
-    void Start()
+    private void Awake()
+    {
+        activePlayers = new List<string>();
+    }
+
+    private void Start()
     {
         Connect();
         /*
@@ -34,13 +40,15 @@ public class TwitchChat : MonoBehaviour
         */
     }
 
-    void Update()
+    private void Update()
     {
         if (twitchClient == null || !twitchClient.Connected)
         {
             Connect();
         }
         ReadChat();
+        CountActivePlayers();
+        PingServer();
         if(Input.GetKeyDown(KeyCode.Space))
         {
             GameInputs("!house J"+UnityEngine.Random.Range(1,10));
@@ -73,6 +81,11 @@ public class TwitchChat : MonoBehaviour
                 var chatName = message.Substring(0, splitPoint);
                 chatName = chatName.Substring(1);
 
+                if(!activePlayers.Contains(chatName))
+                {
+                    activePlayers.Add(chatName);
+                }
+
                 //Get the users message by splitting it from the string
                 splitPoint = message.IndexOf(":", 1);
                 message = message.Substring(splitPoint + 1);
@@ -85,17 +98,38 @@ public class TwitchChat : MonoBehaviour
         }
     }
 
+    private void PingServer()
+    {
+        if (Time.frameCount % 60 == 0 && activePlayers.Count < 2)
+        {
+            writer = new StreamWriter(twitchClient.GetStream());
+            writer.WriteLine("PING");
+            writer.Flush();
+        }
+    }
+
+    private void CountActivePlayers()
+    {
+        if(Time.frameCount % 120 == 0)
+        {
+            ResourcesManager.Instance.UpdateActivePlayers(activePlayers.Count);
+            activePlayers.Clear();
+        }
+    }
+
     private void GameInputs(string ChatInputs)
     {
         if (ChatInputs.Contains("!house"))
         {
             Vector2 position = GetPositionFromMessage(ChatInputs, 5);
             boardManager.SpawnBuilding(position, BuildingTypes.house);
+            ResourcesManager.Instance.UpdatePopulation(5);
         }
         else if (ChatInputs.Contains("!appartments"))
         {
             Vector2 position = GetPositionFromMessage(ChatInputs, 11);
             boardManager.SpawnBuilding(position, BuildingTypes.appartments);
+            ResourcesManager.Instance.UpdatePopulation(20);
         }
         else if (ChatInputs.Contains("!office"))
         {

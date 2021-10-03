@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ResourcesManager : Singleton<ResourcesManager>
 {
+    public int currentPopulation = 0;
+    public TextMeshProUGUI populationText;
+
+    public TextMeshProUGUI activePlayerText;
+
     public List<ResourceData> resourcesDatas;
 
     public List<ResourceSlider> resourcesSliders;
@@ -35,6 +41,17 @@ public class ResourcesManager : Singleton<ResourcesManager>
     {
         ResourceSlider curSlider = resourcesSliders.Find(x => x.type == type);
         curSlider?.UpdateSlider(newValue);
+    }
+
+    public void UpdateActivePlayers(int amount)
+    {
+        activePlayerText.text = amount.ToString("### ### ##0");
+    }
+
+    public void UpdatePopulation(int amount)
+    {
+        currentPopulation += amount;
+        populationText.text = currentPopulation.ToString("### ### ##0");
     }
 }
 
