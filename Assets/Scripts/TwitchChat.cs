@@ -44,6 +44,7 @@ public class TwitchChat : MonoBehaviour
     {
         if (twitchClient == null || !twitchClient.Connected)
         {
+            Debug.Log("Client twitch deconnecté ou existe plus");
             Connect();
         }
         ReadChat();
@@ -58,21 +59,30 @@ public class TwitchChat : MonoBehaviour
     private void Connect()
     {
         twitchClient = new TcpClient("irc.chat.twitch.tv", 6667);
+            Debug.Log(twitchClient);
         reader = new StreamReader(twitchClient.GetStream());
+            Debug.Log(reader);
         writer = new StreamWriter(twitchClient.GetStream());
+        Debug.Log(writer);
 
         writer.WriteLine("PASS " + password);
         writer.WriteLine("NICK " + username);
         writer.WriteLine("USER " + username + " 8 * :" + username);
         writer.WriteLine("JOIN #" + channelName);
+            Debug.Log("lines wrote");
         writer.Flush();
+        Debug.Log("writer flush");
+
     }
 
     private void ReadChat()
     {
         if (twitchClient.Available > 0)
         {
+
+
             var message = reader.ReadLine(); //Read in the current message
+            Debug.Log("Données reçues : " + message);
 
             if (message.Contains("PRIVMSG"))
             {
