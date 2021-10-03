@@ -11,16 +11,26 @@ public class BoardManager : MonoBehaviour
     public float indexPadX, indexPadY;
 
     public GameObject tilePrefab;
+    public GameManager gameManager;
 
     [Header("BUILDINGS")]
     public List<BuildingData> buildingDatas;
-
-    public List<RoadData> roadDatas;
 
     private void Awake()
     {
         tiles = new List<TileManager>();
         SpawnBoard();
+    }
+    void Update()
+    {
+        if (Time.frameCount % 4 == 0)
+        {
+            if (IsBoardFull())
+            {
+                GameManager.Instance.WinGame();
+                GameManager.Instance.IsGameFinished = true;
+            }
+        }
     }
 
     private void SpawnBoard()
@@ -49,7 +59,6 @@ public class BoardManager : MonoBehaviour
         curTile.ChangeBuilding(curData);
         curTile.gameObject.name = type.ToString();
         ResourcesManager.Instance.AddBuilding(curData);
-        CheckRoads();
     }
 
     public void RemoveBuilding(Vector2 position)
@@ -62,71 +71,20 @@ public class BoardManager : MonoBehaviour
         BuildingData currentBuilding = curTile.CurrentBuilding;
         curTile.RemoveBuilding();
         ResourcesManager.Instance.RemoveBuilding(currentBuilding);
-        CheckRoads();
     }
 
-    public TileManager GetTile(int posX, int posY)
+    public bool IsBoardFull()
     {
-        return tiles.Find(x => x.posX == posX && x.posY == posY);
-    }
-
-    public List<TileManager> GetVoisins(int posX, int posY)
-    {
-        List<TileManager> voisins = new List<TileManager>();
-        for(int i =-1; i < 2; ++i)
-        {
-            for(int j = -1; j < 2; ++j)
+        foreach (TileManager tile in tiles) {
+            if (tile.isEmpty)
             {
-                if ((i == 0 && j == 0)||(i==-1 && j==-1) || (i == -1 && j == 1) || (i == 1 && j == -1) || (i == 1 && j == 1))
-                    continue;
-                TileManager tile = GetTile(posX + i, posY + j);
-                if(tile!=null)
-                    voisins.Add(tile);
+                return false;
             }
         }
-        return voisins;
+
+        return true;
     }
 
-    public void CheckRoads()
-    {
-        List<TileManager> roads = tiles.FindAll(x =>x.CurrentBuilding != null && x.CurrentBuilding.buildingType == BuildingTypes.road);
-        foreach(var tileRoad in roads)
-        {
-            int value = 0;
-            TileManager upTile = GetTile(tileRoad.posX + 0, tileRoad.posY + 1);
-            if (upTile != null && upTile.CurrentBuilding!=null && upTile?.CurrentBuilding.buildingType == BuildingTypes.road)
-                value += 5;
-            TileManager downTile = GetTile(tileRoad.posX + 0, tileRoad.posY - 1);
-            if (downTile != null && downTile.CurrentBuilding != null && downTile?.CurrentBuilding.buildingType == BuildingTypes.road)
-                value += 1;
-            TileManager leftTile = GetTile(tileRoad.posX - 1, tileRoad.posY + 0);
-            if (leftTile != null && leftTile.CurrentBuilding != null && leftTile?.CurrentBuilding.buildingType == BuildingTypes.road)
-                value += 2;
-            TileManager rightTile = GetTile(tileRoad.posX + 1, tileRoad.posY + 0);
-            if (rightTile != null && rightTile.CurrentBuilding != null && rightTile?.CurrentBuilding.buildingType == BuildingTypes.road)
-                value += 9;
-
-            List<RoadData> data = roadDatas.FindAll(x => x.value == value);
-            if(data.Count > 0)
-            {
-                tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = data[0].sprite;
-                //tileRoad.transform.localScale = new Vector2(tileRoad.transform.localScale.x * data[0].scaleX, tileRoad.transform.localScale.x);
-            }
-            else
-            {
-                tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = roadDatas[5].sprite;
-                //tileRoad.transform.localScale = new Vector2(tileRoad.transform.localScale.x * roadDatas[5].scaleX, tileRoad.transform.localScale.x);
-            }
-        }
-    }
-}
-
-[System.Serializable]
-public struct RoadData
-{
-    public int value;
-    public Sprite sprite;
-    public int scaleX;
 }
 
 

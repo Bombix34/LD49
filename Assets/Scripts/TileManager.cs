@@ -7,20 +7,14 @@ public class TileManager : MonoBehaviour
     private SpriteRenderer sprite;
     public bool isEmpty = true;
 
-    private BuildingData currentBuilding = null;
+    private BuildingData currentBuilding;
 
     public int posX, posY;
 
-    private int sortingOrder = 0;
-
     private void Awake()
     {
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         //sprite.sprite = null;
-    }
-    private void Start()
-    {
-        sprite.sortingOrder = (int)(1/(transform.position.y+50));
     }
 
     public void ChangeBuilding(BuildingData newBuilding)
