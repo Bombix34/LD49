@@ -66,6 +66,10 @@ public class TwitchChat : MonoBehaviour
 
     private void ReadChat()
     {
+        if(GameManager.Instance.IsGameFinished)
+        {
+            return;
+        }
         if (twitchClient.Available > 0)
         {
             var message = reader.ReadLine(); //Read in the current message
@@ -218,4 +222,5 @@ public class TwitchChat : MonoBehaviour
         y = int.Parse(infoPositionY)-1;
         return new Vector2(x, y);
     }
+
 }

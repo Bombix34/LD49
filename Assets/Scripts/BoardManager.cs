@@ -11,6 +11,7 @@ public class BoardManager : MonoBehaviour
     public float indexPadX, indexPadY;
 
     public GameObject tilePrefab;
+    public GameManager gameManager;
 
     [Header("BUILDINGS")]
     public List<BuildingData> buildingDatas;
@@ -19,6 +20,17 @@ public class BoardManager : MonoBehaviour
     {
         tiles = new List<TileManager>();
         SpawnBoard();
+    }
+    void Update()
+    {
+        if (Time.frameCount % 4 == 0)
+        {
+            if (IsBoardFull())
+            {
+                GameManager.Instance.WinGame();
+                GameManager.Instance.IsGameFinished = true;
+            }
+        }
     }
 
     private void SpawnBoard()
@@ -59,6 +71,18 @@ public class BoardManager : MonoBehaviour
         BuildingData currentBuilding = curTile.CurrentBuilding;
         curTile.RemoveBuilding();
         ResourcesManager.Instance.RemoveBuilding(currentBuilding);
+    }
+
+    public bool IsBoardFull()
+    {
+        foreach (TileManager tile in tiles) {
+            if (tile.isEmpty)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }

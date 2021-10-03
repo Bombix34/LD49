@@ -24,6 +24,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
             data.currentAmount += modif.modificator;
             UpdateSlider(type, data.currentAmount);
         }
+        CheckResources();
     }
 
     public void RemoveBuilding(BuildingData building)
@@ -34,6 +35,22 @@ public class ResourcesManager : Singleton<ResourcesManager>
             ResourceData data = resourcesDatas.Find(x => x.type == type);
             data.currentAmount -= modif.modificator;
             UpdateSlider(type, data.currentAmount);
+        }
+        CheckResources();
+    }
+    //Calls LoseGame function if any resource value is at 0 or 1 (min or max)
+    public void CheckResources()
+    {
+        foreach (var resource in resourcesDatas)
+        {
+            if (resource.currentAmount >= 1)
+            {
+                GameManager.Instance.LoseGame(resource.type, true);
+            }
+            else if (resource.currentAmount <= 0)
+            {
+                GameManager.Instance.LoseGame(resource.type, false);
+            }
         }
     }
 
