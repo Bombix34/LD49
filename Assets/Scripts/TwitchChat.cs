@@ -171,7 +171,7 @@ public class TwitchChat : MonoBehaviour
                 break;
         }
         string infoPositionY = infoPosition.Substring(1);
-        y = int.Parse(infoPositionY)+1;
+        y = int.Parse(infoPositionY)-1;
         return new Vector2(x, y);
     }
 }
