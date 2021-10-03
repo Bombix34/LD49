@@ -14,7 +14,7 @@ public class TileManager : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        sprite.sprite = null;
+        //sprite.sprite = null;
     }
 
     public void ChangeBuilding(BuildingData newBuilding)
