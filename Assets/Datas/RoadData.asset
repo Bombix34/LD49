@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 817c967384c3dc9468638f9646a75187, type: 3}
-  m_Name: PowerPlantData
+  m_Name: RoadData
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5a667213d5a5a0441b3aabd459c73efc, type: 3}
-  buildingType: 5
+  sprite: {fileID: 21300000, guid: 4782c735e0a47f749880f3ce4c3cbf20, type: 3}
+  buildingType: 8
   buildingModificator:
-  - type: 2
-    modificator: 0.05
   - type: 1
-    modificator: 0.05
-  - type: 3
     modificator: -0.05

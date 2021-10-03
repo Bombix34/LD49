@@ -49,10 +49,6 @@ public class TwitchChat : MonoBehaviour
         ReadChat();
         CountActivePlayers();
         PingServer();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-           // GameInputs("!house J" +UnityEngine.Random.Range(1,10));
-        }
     }
 
     private void Connect()
@@ -160,6 +156,11 @@ public class TwitchChat : MonoBehaviour
         {
             Vector2 position = GetPositionFromMessage(ChatInputs, 6);
             boardManager.SpawnBuilding(position, BuildingTypes.casino);
+        }
+        else if (ChatInputs.Contains("!road"))
+        {
+            Vector2 position = GetPositionFromMessage(ChatInputs, 4);
+            boardManager.SpawnBuilding(position, BuildingTypes.road);
         }
         else if(ChatInputs.Contains("!burn"))
         {
