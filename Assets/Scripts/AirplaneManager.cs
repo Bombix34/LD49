@@ -24,7 +24,7 @@ public class AirplaneManager : MonoBehaviour
     {
         while(true)
         {
-            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.15f,0.2f))), 0);
+            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.1f,0.1f))), 0);
             yield return new WaitForSeconds(Random.Range(15f, 30f));
             airplaneText.text = chooseRandomText();
             airPlane.transform.DOMoveX(-Screen.width*0.6f, 20f);
@@ -34,9 +34,13 @@ public class AirplaneManager : MonoBehaviour
     private string chooseRandomText()
     {
         string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length - 1)];
-        if (textToChose.Contains("$"))
+        if (textToChose.Contains("$currentPlayers"))
         {
-            textToChose.Replace("$", GameManager.Instance.ActivePlayers.ToString());
+            textToChose = textToChose.Replace("$currentPlayers", GameManager.Instance.ActivePlayers.ToString());
+        }
+        if (textToChose.Contains("$totalPlayers"))
+        {
+            textToChose = textToChose.Replace("$totalPlayers", GameManager.Instance.ActivePlayers.ToString());
         }
         return textToChose;
     }
