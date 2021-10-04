@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &7158563986320876972
 MonoBehaviour:
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airPlane: {fileID: 7158563987038518623}
   randomPosY: {x: 0, y: 0}
+  airplaneTexts: []
 --- !u!1 &7158563987038518620
 GameObject:
   m_ObjectHideFlags: 0

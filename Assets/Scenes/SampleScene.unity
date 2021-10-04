@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activePlayers: []
+  totalPlayers: []
   username: bicephal
   password: oauth:pnhjr49qrrecl11qkhs2vy2h9wqpbj
   channelName: bicephal
@@ -1394,6 +1395,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2996060131083684553, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3620270126081255055, guid: f5239bcf0c6cf0147b777f5203b65c10,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2147,6 +2153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158563986320876975, guid: 5252752afd2fca249b45678b97d95de2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7158563986320876978, guid: 5252752afd2fca249b45678b97d95de2,
         type: 3}
