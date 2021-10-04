@@ -12,6 +12,13 @@ public class GameManager : Singleton<GameManager>
     public bool IsGameFinished { get; set; } = false;
     public float timer = 0f;
 
+
+    public void Start()
+    {
+        victoryPanel.SetActive(false);
+        losePanel.SetActive(false);
+    }
+
     IEnumerator ReloadSceneCoroutine()
     {
         timer = 10f;
