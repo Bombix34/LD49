@@ -114,8 +114,10 @@ public class TwitchChat : MonoBehaviour
     {
         if(Time.frameCount % 1200 == 0)
         {
-            ResourcesManager.Instance.UpdateActivePlayers(activePlayers.Count);
+            int activePlayersCounter = activePlayers.Count;
+            ResourcesManager.Instance.UpdateActivePlayers(activePlayersCounter);
             activePlayers.Clear();
+            GameManager.Instance.ActivePlayers = activePlayersCounter;
         }
     }
 

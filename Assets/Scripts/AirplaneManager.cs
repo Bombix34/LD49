@@ -9,6 +9,7 @@ public class AirplaneManager : MonoBehaviour
     public RectTransform airPlane;
     private Vector2 initPosition;
     public Vector2 randomPosY;
+    public string[] airplaneTexts;
 
     private TextMeshProUGUI airplaneText;
 
@@ -23,10 +24,20 @@ public class AirplaneManager : MonoBehaviour
     {
         while(true)
         {
-            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.3f,0.6f))), 0);
+            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.15f,0.2f))), 0);
             yield return new WaitForSeconds(Random.Range(15f, 30f));
-            airplaneText.text = "Je suis un texte d'exemple";
-            airPlane.transform.DOMoveX(-Screen.width/2, 10f);
+            airplaneText.text = chooseRandomText();
+            airPlane.transform.DOMoveX(-Screen.width*0.6f, 20f);
         }
+    }
+
+    private string chooseRandomText()
+    {
+        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length - 1)];
+        if (textToChose.Contains("$"))
+        {
+            textToChose.Replace("$", GameManager.Instance.ActivePlayers.ToString());
+        }
+        return textToChose;
     }
 }

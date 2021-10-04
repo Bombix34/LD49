@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject victoryPanel;
     public GameObject losePanel;
     public GameObject reloadTimer;
+    public int ActivePlayers { get; set; } = 0;
     public bool IsGameFinished { get; set; } = false;
     public float timer = 0f;
 
