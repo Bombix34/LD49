@@ -21,10 +21,14 @@ public class TwitchChat : MonoBehaviour
     public Text chatBox;
     public BoardManager boardManager;
 
+    private int maxMessageInChat = 60;
+    private List<string> currentMessages;
+
     private void Awake()
     {
         activePlayers = new List<string>();
         totalPlayers = new List<string>();
+        currentMessages = new List<string>();
     }
 
     private void Start()
@@ -91,7 +95,13 @@ public class TwitchChat : MonoBehaviour
                 //Run the instructions to control the game!
                 if (GameInputs(message.ToLower()))
                 {
-                    chatBox.text = chatBox.text + "\n" + String.Format("{0}: {1}", chatName, message);
+                    string newCommand = "\n" + String.Format("{0}: {1}", chatName, message);
+                    currentMessages.Add(newCommand);
+                    if (currentMessages.Count > maxMessageInChat)
+                        currentMessages.RemoveAt(0);
+                    chatBox.text = "";
+                    foreach (var line in currentMessages)
+                        chatBox.text += line;
 
                     if (!activePlayers.Contains(chatName))
                     {

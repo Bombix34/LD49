@@ -6,6 +6,7 @@ using TMPro;
 
 public class AirplaneManager : MonoBehaviour
 {
+    public TwitchChat twitchChat;
     public RectTransform airPlane;
     private Vector2 initPosition;
     public Vector2 randomPosY;
@@ -33,14 +34,14 @@ public class AirplaneManager : MonoBehaviour
 
     private string chooseRandomText()
     {
-        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length - 1)];
+        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length)];
         if (textToChose.Contains("$currentPlayers"))
         {
             textToChose = textToChose.Replace("$currentPlayers", GameManager.Instance.ActivePlayers.ToString());
         }
         if (textToChose.Contains("$totalPlayers"))
         {
-            textToChose = textToChose.Replace("$totalPlayers", GameManager.Instance.ActivePlayers.ToString());
+            textToChose = textToChose.Replace("$totalPlayers", twitchChat.TotalPlayers.ToString());
         }
         return textToChose;
     }
