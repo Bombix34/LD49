@@ -114,7 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airPlane: {fileID: 7158563987038518623}
   randomPosY: {x: 0, y: 0}
-  airplaneTexts: []
+  airplaneTexts:
+  - There has been a total of $totalPlayers neighborhood builders until now
+  - There is currently a total of $currentPlayers contributors to this neighborhood
+  - Fill this neighborhood with buildings to win.
+  - You can constructs buildings by entering a command in twitch chat.
+  - If any of your gauges goes at its lowest, or its highest, you lose !
+  - You can burn forests but it will have some effects on your gauges
+  - If your command is typed correctly, it appears on the game.
+  - 'Roads are purely cosmestic ! '
+  - Most buildings will lower your population gauge !
 --- !u!1 &7158563987038518620
 GameObject:
   m_ObjectHideFlags: 0
