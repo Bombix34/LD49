@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817c967384c3dc9468638f9646a75187, type: 3}
   m_Name: OfficeData
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 109a99ebc013e8a4b858adbb2e34c4be, type: 3}
+  sprite: {fileID: 21300000, guid: 56fde7598f7ec2148966d48db1a71632, type: 3}
   buildingType: 2
   buildingModificator:
   - type: 1
