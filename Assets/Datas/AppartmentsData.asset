@@ -17,7 +17,7 @@ MonoBehaviour:
   buildingType: 1
   buildingModificator:
   - type: 0
-    modificator: 0.05
+    modificator: 0.1
   - type: 3
     modificator: -0.05
   - type: 1
