@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FafaTools.Audio;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -44,6 +45,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoseGame(ResourcesTypes type, bool isAtMax)
     {
+        SoundManager.Instance.DoTransition(false);
         string loseText = "";
         losePanel.SetActive(true);
         IsGameFinished = true;

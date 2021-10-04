@@ -33,3 +33,7 @@ MonoBehaviour:
     m_AudioEvent: {fileID: 11400000, guid: 08d5fe257437715488163b0ba2d20703, type: 2}
   - m_EnumFieldName: sfx_burn
     m_AudioEvent: {fileID: 11400000, guid: 0e0c5a003c1f15248bf933e0b127053a, type: 2}
+  - m_EnumFieldName: jingle_victory
+    m_AudioEvent: {fileID: 11400000, guid: 93bbf1f9b6c721d439d6322e40bebbb5, type: 2}
+  - m_EnumFieldName: jingle_defeat
+    m_AudioEvent: {fileID: 11400000, guid: 61f283cdc34b6504f8145d14542dbea7, type: 2}

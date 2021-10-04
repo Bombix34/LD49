@@ -10,5 +10,7 @@ public enum AudioFieldEnum
 	sfx_casino = 7,
 	sfx_road = 8,
 	sfx_burn = 9,
+	jingle_victory = 10,
+	jingle_defeat = 11,
 
 }

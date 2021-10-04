@@ -85,6 +85,27 @@ namespace FafaTools.Audio
                 audioSourceAmbiants.Play();
             }
         }
+
+        public void DoTransition(bool isVictory)
+        {
+            StartCoroutine(TransitionCoroutine(isVictory));
+        }
+
+        private IEnumerator TransitionCoroutine(bool isVictory)
+        {
+            if (isVictory)
+            {
+                audioSourceMusic.DOFade(0.1f, 1f);
+                PlaySound(AudioFieldEnum.jingle_victory);
+                yield return new WaitForSeconds(7f);
+                audioSourceMusic.DOFade(0.4f, 1f);
+            }
+            else
+            {
+                audioSourceMusic.DOFade(0.1f, 1f);
+                PlaySound(AudioFieldEnum.jingle_defeat);
+            }
+        }
         
         public void PlaySound(AudioFieldEnum sound)
         {

@@ -48,6 +48,7 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator NewBoard()
     {
+        SoundManager.Instance.DoTransition(true);
         yield return new WaitForSeconds(3f);
 
         //droite bas gauche haut
