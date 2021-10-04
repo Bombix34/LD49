@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 86bccb588904ead47962022b0c28e2d7
+guid: 22ac1070098882b49ab444437f7bea2a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 3700395880985218831
-    second: tableau3_0
-  - first:
-      213: -5476677305665398214
-    second: tableau3_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 111, z: 0, w: 91}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -129,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tableau3_0
+      name: tableau4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 111
-        width: 113
-        height: 64
+        x: 6
+        y: 222
+        width: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f417eb2727a5330800000000000000
-      internalID: 3700395880985218831
+      spriteID: 695af1d672877d300800000000000000
+      internalID: 276822012836423062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tableau3_1
+      name: tableau4_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 76
-        width: 113
-        height: 34
+        x: 33
+        y: 222
+        width: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +158,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ade56d10feef3b0800000000000000
-      internalID: -5476677305665398214
+      spriteID: 5e004274633fc3b60800000000000000
+      internalID: 7727318475108253925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tableau4_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 222
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddf43d5f9fd86000800000000000000
+      internalID: 29519273134456286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tableau4_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 219
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f70cd2834aaade7b0800000000000000
+      internalID: -5193307172994432897
       vertices: []
       indices: 
       edges: []

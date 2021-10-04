@@ -86,6 +86,10 @@ public class BoardManager : MonoBehaviour
         float multiplicatorX = movementHoodPositions[currentIndexSequence].x;
         float multiplicatorY = movementHoodPositions[currentIndexSequence].y;
 
+        foreach(var tile in tiles)
+        {
+            tile.RemoveText();
+        }
         tiles.Clear();
 
         int newSortingOrder = currentHood.sortingOrder;

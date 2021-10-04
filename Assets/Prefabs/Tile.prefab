@@ -89,8 +89,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -1631703807
-  m_SortingOrder: 50
+  m_SortingLayerID: -299679597
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &8030849363993253720
 MonoBehaviour:
@@ -156,16 +156,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2705532899875675039}
-  m_LocalRotation: {x: -0.30063558, y: -0.27158824, z: -0.30121908, w: 0.86320627}
-  m_LocalPosition: {x: 0, y: 0, z: -1.39}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalRotation: {x: -0.3351921, y: -0.28890362, z: -0.32994512, w: 0.83385676}
+  m_LocalPosition: {x: 0, y: 0, z: -1.85}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
   m_Children: []
   m_Father: {fileID: 2475116923407393824}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -43.05, y: -23.19, z: -29.22}
+  m_LocalEulerAnglesHint: {x: -48.56, y: -23.19, z: -32.6}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -958, y: -541.9}
+  m_AnchoredPosition: {x: -958.4, y: -541.67}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1930559072082951642
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d25d91055589ce438fa133e001194f1, type: 2}
   m_sharedMaterial: {fileID: -1479784088535080719, guid: 0d25d91055589ce438fa133e001194f1,

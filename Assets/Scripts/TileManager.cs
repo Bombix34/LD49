@@ -26,7 +26,14 @@ public class TileManager : MonoBehaviour
 
     private void Start()
     {
+       // StartCoroutine(ChangePositionCoroutine());
+    }
+
+    private IEnumerator ChangePositionCoroutine()
+    {
+        yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
         ChangePositionFeedback(new Vector2(posX, posY));
+
     }
 
     public void ChangeBuilding(BuildingData newBuilding)
@@ -54,6 +61,11 @@ public class TileManager : MonoBehaviour
     public void ChangePositionFeedback(Vector2 newPosition)
     {
         positionFeedback.text = GetPositionText((int)newPosition.x) + (newPosition.y+1).ToString();
+    }
+
+    public void RemoveText()
+    {
+        positionFeedback.gameObject.SetActive(false);
     }
 
     public string GetPositionText(int posX)

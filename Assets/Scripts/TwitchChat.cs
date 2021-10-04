@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class TwitchChat : MonoBehaviour
 {
     public List<string> activePlayers;
+    public List<string> totalPlayers;
 
     private TcpClient twitchClient;
     private StreamReader reader;
@@ -23,6 +24,7 @@ public class TwitchChat : MonoBehaviour
     private void Awake()
     {
         activePlayers = new List<string>();
+        totalPlayers = new List<string>();
     }
 
     private void Start()
@@ -94,6 +96,10 @@ public class TwitchChat : MonoBehaviour
                     if (!activePlayers.Contains(chatName))
                     {
                         activePlayers.Add(chatName);
+                        if (!totalPlayers.Contains(chatName))
+                        {
+                            totalPlayers.Add(chatName);
+                        }
                     }
                 }
             }
@@ -232,6 +238,11 @@ public class TwitchChat : MonoBehaviour
         string infoPositionY = infoPosition.Substring(1);
         y = int.Parse(infoPositionY)-1;
         return new Vector2(x, y);
+    }
+
+    public int TotalPlayers
+    {
+        get => totalPlayers.Count;
     }
 
 }
