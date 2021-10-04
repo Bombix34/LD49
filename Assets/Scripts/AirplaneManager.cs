@@ -34,7 +34,7 @@ public class AirplaneManager : MonoBehaviour
 
     private string chooseRandomText()
     {
-        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length - 1)];
+        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length)];
         if (textToChose.Contains("$currentPlayers"))
         {
             textToChose = textToChose.Replace("$currentPlayers", GameManager.Instance.ActivePlayers.ToString());
