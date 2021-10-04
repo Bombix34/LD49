@@ -23,8 +23,8 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator ReloadSceneCoroutine()
     {
-        timer = 10f;
-        yield return new WaitForSeconds(10);
+        timer = 20f;
+        yield return new WaitForSeconds(timer);
         SceneManager.LoadScene("SampleScene");
     }
 
