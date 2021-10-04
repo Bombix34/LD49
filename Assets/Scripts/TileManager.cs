@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class TileManager : MonoBehaviour
 {
@@ -14,16 +15,24 @@ public class TileManager : MonoBehaviour
 
     public List<TileFX> FXs;
     private GameObject currentFX;
+    private TextMeshProUGUI positionFeedback;
 
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
+        positionFeedback = GetComponentInChildren<TextMeshProUGUI>();
         //sprite.sprite = null;
+    }
+
+    private void Start()
+    {
+        ChangePositionFeedback(new Vector2(posX, posY));
     }
 
     public void ChangeBuilding(BuildingData newBuilding)
     {
         isEmpty = false;
+        positionFeedback.gameObject.SetActive(false);
         sprite.sprite = newBuilding.RandomSprite;
         currentBuilding = newBuilding;
         this.transform.localScale = Vector3.zero;
@@ -35,10 +44,48 @@ public class TileManager : MonoBehaviour
     public void RemoveBuilding()
     {
         isEmpty = true;
+        positionFeedback.gameObject.SetActive(true);
         sprite.sprite = null;
         currentBuilding = null;
         currentFX?.SetActive(false);
         this.transform.DOScale(0f, 1f).SetEase(Ease.OutElastic);
+    }
+
+    public void ChangePositionFeedback(Vector2 newPosition)
+    {
+        positionFeedback.text = GetPositionText((int)newPosition.x) + (newPosition.y+1).ToString();
+    }
+
+    public string GetPositionText(int posX)
+    {
+        switch (posX)
+        {
+            case 0:
+                return "A";
+            case 1:
+                return "B";
+            case 2:
+                return "C";
+            case 3:
+                return "D";
+            case 4:
+                return "E";
+            case 5:
+                return "F";
+            case 6:
+                return "G";
+            case 7:
+                return "H";
+            case 8:
+                return "I";
+            case 9:
+                return "J";
+            case 10:
+                return "K";
+            case 11:
+                return "L";
+        }
+        return "A";
     }
 
     public BuildingData CurrentBuilding
