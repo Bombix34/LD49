@@ -44,3 +44,6 @@ TagManager:
   - name: Building
     uniqueID: 3995287699
     locked: 0
+  - name: WorldUI
+    uniqueID: 2663263489
+    locked: 0

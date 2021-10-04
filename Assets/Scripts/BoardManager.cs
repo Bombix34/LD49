@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BoardManager : MonoBehaviour
 {
@@ -18,30 +19,119 @@ public class BoardManager : MonoBehaviour
     public List<BuildingData> buildingDatas;
     public List<RoadData> roadDatas;
 
+    [Header("QUARTIERS")]
+    public GameObject hoodPrefab;
+    public BoardData currentHood;
+    private List<BoardData> allHoods;
+    public List<Vector2> movementHoodPositions;
+    public List<Vector2> movementSequence;
+    private int currentIndexSequence = 0;
+    private Vector2 initialOffset;
+
     private void Awake()
     {
         tiles = new List<TileManager>();
-        SpawnBoard();
+        allHoods = new List<BoardData>();
+        allHoods.Add(currentHood);
+        initialOffset = currentHood.board.transform.position;
+        Debug.Log(initialOffset);
+        SpawnTiles();
     }
-    void Update()
+
+    private void Update()
     {
-        if (Time.frameCount % 4 == 0)
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            if (IsBoardFull())
-            {
-                GameManager.Instance.WinGame();
-            }
+            NewBoard();
         }
     }
 
-    private void SpawnBoard()
+    private void NewBoard()
+    {
+        //droite bas gauche haut
+        int curPosX = currentHood.posX;
+        int curPosY = currentHood.posY;
+        int dirX = (int)movementSequence[currentIndexSequence].x;
+        int dirY = (int)movementSequence[currentIndexSequence].y;
+        int finalPosX = curPosX + dirX;
+        int finalPosY = curPosY + dirY;
+
+        int nextIndex = currentIndexSequence+1;
+        if (nextIndex > 3)
+            nextIndex = 0;
+        int nextDirX = (int)movementSequence[nextIndex].x;
+        int nextDirY = (int)movementSequence[nextIndex].y;
+        int nextFinalPosX = curPosX + nextDirX;
+        int nextFinalPosY = curPosY + nextDirY;
+
+        List<BoardData> concernedBoard = allHoods.FindAll(x => x.posX == finalPosX && x.posY == finalPosY);
+        if( concernedBoard.Count == 0 )
+        {
+            List<BoardData> roationConcernedBoard = allHoods.FindAll(x => x.posX == nextFinalPosX && x.posY == nextFinalPosY);
+            if(roationConcernedBoard.Count == 0 )
+            {
+                currentIndexSequence++;
+                if (currentIndexSequence > 3)
+                    currentIndexSequence = 0;
+                finalPosX = nextFinalPosX;
+                finalPosY = nextFinalPosY;
+                dirX = nextDirX;
+                dirY = nextDirY;
+            }
+        }
+
+        float multiplicatorX = movementHoodPositions[currentIndexSequence].x;
+        float multiplicatorY = movementHoodPositions[currentIndexSequence].y;
+
+        tiles.Clear();
+
+        int newSortingOrder = currentHood.sortingOrder;
+
+        if(allHoods.Count == 1)
+        {
+            finalPosX = curPosX + 1;
+            finalPosY = curPosY +0;
+            dirX = 1;
+            dirY = 0;
+            currentIndexSequence = 0;
+            multiplicatorX = movementHoodPositions[currentIndexSequence].x;
+            multiplicatorY = movementHoodPositions[currentIndexSequence].y;
+        }
+        if (currentIndexSequence < 2)
+            newSortingOrder++;
+        else
+            newSortingOrder--;
+
+        Vector2 currentBoardWorldPosition = currentHood.board.transform.position;
+        Vector2 newPosition = new Vector2(
+            currentBoardWorldPosition.x + movementHoodPositions[currentIndexSequence].x,
+            currentBoardWorldPosition.y + movementHoodPositions[currentIndexSequence].y);
+
+        GameObject newBoard = Instantiate(hoodPrefab, this.transform);
+        newBoard.name = "Hood_" + finalPosX + "x" + finalPosY;
+        newBoard.transform.position = newPosition;
+        newBoard.transform.localScale = Vector2.zero;
+        newBoard.transform.DOScale(1f, 1f).OnComplete(()=>{ SpawnTiles();});
+        currentHood = new BoardData(newBoard, finalPosX, finalPosY, newSortingOrder);
+        allHoods.Add(currentHood);
+        CameraManager.Instance.target = newBoard.transform;
+    }
+
+    private void SpawnTiles(bool isFirst=false)
     {
         for(int i = 0; i < column; ++i)
         {
             for(int j = 0; j < row; ++j)
             {
-                GameObject currentTile = Instantiate(tilePrefab, this.transform);
-                currentTile.transform.position = new Vector2(i*padX + (j*indexPadX), i*padY+(j*indexPadY));
+                GameObject currentTile = Instantiate(tilePrefab, this.currentHood.board.transform);
+                if(isFirst)
+                    currentTile.transform.position = new Vector2(i*padX + (j*indexPadX), i*padY+(j*indexPadY));
+                else
+                {
+                    Vector2 hoodPosition = currentHood.board.transform.position;
+                    currentTile.transform.position = new Vector2((hoodPosition.x- initialOffset.x) + (i * padX + (j * indexPadX)), (hoodPosition.y-initialOffset.y)+(i * padY + (j * indexPadY)));
+                }
+                Debug.Log(currentTile.transform.position);
                 currentTile.GetComponent<TileManager>().posX = i;
                 currentTile.GetComponent<TileManager>().posY = j;
                 tiles.Add(currentTile.GetComponent<TileManager>());
@@ -61,6 +151,10 @@ public class BoardManager : MonoBehaviour
         curTile.gameObject.name = type.ToString();
         ResourcesManager.Instance.AddBuilding(curData);
         CheckRoads();
+        if (IsBoardFull())
+        {
+            NewBoard();
+        }
     }
 
     public void RemoveBuilding(Vector2 position)
@@ -84,7 +178,6 @@ public class BoardManager : MonoBehaviour
                 return false;
             }
         }
-
         return true;
     }
 
@@ -114,18 +207,13 @@ public class BoardManager : MonoBehaviour
 
             List<RoadData> data = roadDatas.FindAll(x => x.value == value);
             if (data.Count > 0)
-            {
                 tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = data[0].sprite;
-                //tileRoad.transform.localScale = new Vector2(tileRoad.transform.localScale.x * data[0].scaleX, tileRoad.transform.localScale.x);
-            }
             else
-            {
                 tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = roadDatas[5].sprite;
-                //tileRoad.transform.localScale = new Vector2(tileRoad.transform.localScale.x * roadDatas[5].scaleX, tileRoad.transform.localScale.x);
-            }
         }
     }
 }
+
 [System.Serializable]
 public struct RoadData
 {
@@ -134,4 +222,20 @@ public struct RoadData
     public int scaleX;
 }
 
+[System.Serializable]
+public class BoardData
+{
+    public GameObject board;
+    public int posX, posY;
+    public int sortingOrder;
+
+    public BoardData(GameObject board, int x, int y, int sortingOrder)
+    {
+        this.board = board;
+        posX = x;
+        posY = y;
+        this.sortingOrder = sortingOrder;
+        board.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
+    }
+}
 

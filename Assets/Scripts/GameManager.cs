@@ -30,9 +30,9 @@ public class GameManager : Singleton<GameManager>
 
     public void WinGame()
     {
-        victoryPanel.SetActive(true);
-        IsGameFinished = true;
-        StartCoroutine(ReloadSceneCoroutine());
+        //victoryPanel.SetActive(true);
+        //IsGameFinished = true;
+        //StartCoroutine(ReloadSceneCoroutine());
     }
 
     public void LoseGame(ResourcesTypes type, bool isAtMax)
