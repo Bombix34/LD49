@@ -24,7 +24,7 @@ public class TileManager : MonoBehaviour
     public void ChangeBuilding(BuildingData newBuilding)
     {
         isEmpty = false;
-        sprite.sprite = newBuilding.sprite;
+        sprite.sprite = newBuilding.RandomSprite;
         currentBuilding = newBuilding;
         this.transform.localScale = Vector3.zero;
         currentFX = FXs.Find(x => x.type == currentBuilding.buildingType).fxObject;

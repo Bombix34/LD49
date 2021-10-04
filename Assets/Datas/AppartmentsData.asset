@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817c967384c3dc9468638f9646a75187, type: 3}
   m_Name: AppartmentsData
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 99222ad48fbb0a2499435b705af2cacf, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 99222ad48fbb0a2499435b705af2cacf, type: 3}
   buildingType: 1
   buildingModificator:
   - type: 0

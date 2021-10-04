@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817c967384c3dc9468638f9646a75187, type: 3}
   m_Name: CasinoData
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 90bf59afcd092164eb6d566bd5ad049b, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 90bf59afcd092164eb6d566bd5ad049b, type: 3}
   buildingType: 7
   buildingModificator:
   - type: 3

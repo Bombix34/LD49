@@ -5,11 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "new data")]
 public class BuildingData : ScriptableObject
 {
-    public Sprite sprite;
+    public List<Sprite> sprites;
 
     public BuildingTypes buildingType;
 
     public List<BuildingModificator> buildingModificator;
+
+    public Sprite RandomSprite
+    {
+        get => sprites[Random.Range(0, sprites.Count)];
+    }
 }
 
 [System.Serializable]
@@ -29,5 +34,6 @@ public enum BuildingTypes
     powerPlant,
     cinema,
     casino,
-    road
+    road,
+    forest
 }

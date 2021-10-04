@@ -34,16 +34,7 @@ public class BoardManager : MonoBehaviour
         allHoods = new List<BoardData>();
         allHoods.Add(currentHood);
         initialOffset = currentHood.board.transform.position;
-        Debug.Log(initialOffset);
         SpawnTiles();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            NewBoard();
-        }
     }
 
     private void NewBoard()
@@ -137,6 +128,32 @@ public class BoardManager : MonoBehaviour
                 tiles.Add(currentTile.GetComponent<TileManager>());
             }
         }
+        SpawnForest();
+    }
+
+    private void SpawnForest()
+    {
+        int forestNumber = Random.Range(10, 20);
+        List<TileManager> chosenTiles = new List<TileManager>();
+        for(int i = 0; i < forestNumber; ++i)
+        {
+            int randX = Random.Range(0, column);
+            int randY = Random.Range(0, row);
+            TileManager curTile = GetTile(randX, randY);
+            if(chosenTiles.Contains(curTile))
+            {
+                forestNumber++;
+                continue;
+            }
+            chosenTiles.Add(curTile);
+            StartCoroutine(SpawnTreeCoroutine(curTile));
+        }
+    }
+
+    private IEnumerator SpawnTreeCoroutine(TileManager tile)
+    {
+        yield return new WaitForSeconds(0.3f);
+        tile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == BuildingTypes.forest));
     }
 
     public void SpawnBuilding(Vector2 position, BuildingTypes type)
