@@ -1,20 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     public BoardManager boardManager;
     public GameObject victoryPanel;
     public GameObject losePanel;
+    public GameObject reloadTimer;
     public bool IsGameFinished { get; set; } = false;
+    public float timer = 0f;
+
+    IEnumerator ReloadSceneCoroutine()
+    {
+
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    private void Update()
+    {
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+            reloadTimer.GetComponent<UnityEngine.UI.Text>().text = timer.ToString();
+        }
+    }
 
     public void WinGame()
     {
         victoryPanel.SetActive(true);
         IsGameFinished = true;
+        StartCoroutine(ReloadSceneCoroutine());
     }
-    
+
     public void LoseGame(ResourcesTypes type, bool isAtMax)
     {
         string loseText = "";
@@ -67,5 +87,8 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
         losePanel.GetComponentInChildren<UnityEngine.UI.Text>().text = loseText;
+
+        StartCoroutine(ReloadSceneCoroutine());
+
     }
 }
