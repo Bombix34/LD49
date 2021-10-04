@@ -67,7 +67,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
 
     public void UpdateActivePlayers(int amount)
     {
-        activePlayerText.text = amount.ToString("### ### ##0");
+        activePlayerText.text = amount.ToString();
     }
 
     public void UpdatePopulation(int amount)
