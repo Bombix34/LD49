@@ -7,15 +7,12 @@ public class SpriteRenderingLayer : MonoBehaviour
 
     SpriteRenderer spriteRender;
     public float modificator;
-    public bool isParentTransform;
 
     protected virtual void Start()
     {
         spriteRender = GetComponentInChildren<SpriteRenderer>();
-        if (isParentTransform)
-            spriteRender.sortingOrder = (int)(((1 / (transform.parent.position.y+17)) * 1000) + modificator);
-        else
-            spriteRender.sortingOrder = (int)(((1 / (transform.position.y+17)) * 1000) + modificator);
+        float parentPosY = Mathf.Abs(transform.parent.position.y)*20f;
+        spriteRender.sortingOrder = (int)(((1 / (transform.position.y+17*(1/parentPosY)) * 1000) + modificator));
     }
 
 }

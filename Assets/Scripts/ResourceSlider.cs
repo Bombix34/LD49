@@ -10,9 +10,12 @@ public class ResourceSlider : MonoBehaviour
     public Image fillArea;
     private Slider slider;
 
+    private Color baseColor;
+
     private void Awake()
     {
         slider = GetComponentInChildren<Slider>();
+        baseColor = fillArea.color;
     }
 
     public void UpdateSlider(float resourceValue)
@@ -23,6 +26,6 @@ public class ResourceSlider : MonoBehaviour
             fillArea.color = Color.red;
         slider.DORewind();
         slider.DOValue(resourceValue, 0.3f)
-            .OnComplete(() => fillArea.color = Color.white);
+            .OnComplete(() => fillArea.color = baseColor);
     }
 }

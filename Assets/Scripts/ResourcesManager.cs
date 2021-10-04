@@ -24,6 +24,10 @@ public class ResourcesManager : Singleton<ResourcesManager>
             data.currentAmount += modif.modificator;
             UpdateSlider(type, data.currentAmount);
         }
+        if (building.buildingType == BuildingTypes.house)
+            UpdatePopulation(10);
+        else if (building.buildingType == BuildingTypes.appartments)
+            UpdatePopulation(30);
         CheckResources();
     }
 
@@ -38,6 +42,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         }
         CheckResources();
     }
+
     //Calls LoseGame function if any resource value is at 0 or 1 (min or max)
     public void CheckResources()
     {
