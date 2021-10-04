@@ -37,8 +37,18 @@ public class BoardManager : MonoBehaviour
         SpawnTiles();
     }
 
-    private void NewBoard()
+    private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(NewBoard());
+        }
+    }
+
+    private IEnumerator NewBoard()
+    {
+        yield return new WaitForSeconds(3f);
+
         //droite bas gauche haut
         int curPosX = currentHood.posX;
         int curPosY = currentHood.posY;
@@ -166,7 +176,7 @@ public class BoardManager : MonoBehaviour
         CheckRoads();
         if (IsBoardFull())
         {
-            NewBoard();
+            StartCoroutine(NewBoard());
         }
     }
 

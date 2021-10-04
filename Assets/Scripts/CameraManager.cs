@@ -45,8 +45,8 @@ public class CameraManager : Singleton<CameraManager>
         float finalValue = isDisplay ? 0.5f : 0f;
         foreach(var text in worldFeedbackTexts)
         {
-            text.DOFade(finalValue, 0.3f);
+            text.DOFade(finalValue, 1f);
         }
-        gridRenderer.DOFade(finalValue, 0.3f);
+        gridRenderer.DOFade(finalValue, 1.3f);
     }
 }
