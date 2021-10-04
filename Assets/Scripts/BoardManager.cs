@@ -128,10 +128,10 @@ public class BoardManager : MonoBehaviour
                 tiles.Add(currentTile.GetComponent<TileManager>());
             }
         }
-        SpawnForest();
+        StartCoroutine(SpawnForest());
     }
 
-    private void SpawnForest()
+    private IEnumerator SpawnForest()
     {
         int forestNumber = Random.Range(10, 20);
         List<TileManager> chosenTiles = new List<TileManager>();
@@ -146,15 +146,11 @@ public class BoardManager : MonoBehaviour
                 continue;
             }
             chosenTiles.Add(curTile);
-            StartCoroutine(SpawnTreeCoroutine(curTile));
+            curTile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == BuildingTypes.forest));
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
-    private IEnumerator SpawnTreeCoroutine(TileManager tile)
-    {
-        yield return new WaitForSeconds(0.3f);
-        tile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == BuildingTypes.forest));
-    }
 
     public void SpawnBuilding(Vector2 position, BuildingTypes type)
     {

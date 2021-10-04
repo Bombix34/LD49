@@ -28,7 +28,7 @@ public class TileManager : MonoBehaviour
         currentBuilding = newBuilding;
         this.transform.localScale = Vector3.zero;
         currentFX = FXs.Find(x => x.type == currentBuilding.buildingType).fxObject;
-        this.transform.DOScale(1f, 1f).SetEase(Ease.InBounce)
+        this.transform.DOScale(1f, 1f).SetEase(Ease.InQuart)
             .OnComplete(() => currentFX?.SetActive(true));
     }
 
