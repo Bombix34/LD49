@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using FafaTools.Audio;
 
 public class BoardManager : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator NewBoard()
     {
+        SoundManager.Instance.DoTransition(true);
         yield return new WaitForSeconds(3f);
 
         //droite bas gauche haut
@@ -132,7 +134,6 @@ public class BoardManager : MonoBehaviour
                     Vector2 hoodPosition = currentHood.board.transform.position;
                     currentTile.transform.position = new Vector2((hoodPosition.x- initialOffset.x) + (i * padX + (j * indexPadX)), (hoodPosition.y-initialOffset.y)+(i * padY + (j * indexPadY)));
                 }
-                Debug.Log(currentTile.transform.position);
                 currentTile.GetComponent<TileManager>().posX = i;
                 currentTile.GetComponent<TileManager>().posY = j;
                 tiles.Add(currentTile.GetComponent<TileManager>());
@@ -173,6 +174,7 @@ public class BoardManager : MonoBehaviour
         curTile.ChangeBuilding(curData);
         curTile.gameObject.name = type.ToString();
         ResourcesManager.Instance.AddBuilding(curData);
+        PlayBuildingSound(type);
         CheckRoads();
         if (IsBoardFull())
         {
@@ -190,6 +192,7 @@ public class BoardManager : MonoBehaviour
         BuildingData currentBuilding = curTile.CurrentBuilding;
         curTile.RemoveBuilding();
         ResourcesManager.Instance.RemoveBuilding(currentBuilding);
+        SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_burn);
         CheckRoads();
     }
 
@@ -244,6 +247,43 @@ public class BoardManager : MonoBehaviour
                 tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = data[0].sprite;
             else
                 tileRoad.GetComponentInChildren<SpriteRenderer>().sprite = roadDatas[5].sprite;
+        }
+    }
+
+    private void PlayBuildingSound(BuildingTypes type)
+    {
+        switch (type)
+        {
+            case BuildingTypes.appartments:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_appartments);
+                break;
+            case BuildingTypes.casino:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_casino);
+                break;
+            case BuildingTypes.cinema:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_cinema);
+                break;
+            case BuildingTypes.factory:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_factory);
+                break;
+            case BuildingTypes.forest:
+                // SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_factory);
+                break;
+            case BuildingTypes.house:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_house);
+                break;
+            case BuildingTypes.mall:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_mall);
+                break;
+            case BuildingTypes.office:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_office);
+                break;
+            case BuildingTypes.powerPlant:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_powerplant);
+                break;
+            case BuildingTypes.road:
+                SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_road);
+                break;
         }
     }
 }

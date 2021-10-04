@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f99d97978c832c41bf824007266031d, type: 2}
   - {fileID: 11400000, guid: 9be5a743c6113ac44920cdf617b563d8, type: 2}
   - {fileID: 11400000, guid: 6aaa9e9e501efab4584e3f0219e831ce, type: 2}
+  - {fileID: 11400000, guid: 5830181b8b8528f45bf0628fee5afbe7, type: 2}
   roadDatas:
   - value: 0
     sprite: {fileID: 21300000, guid: eb51356609462734b861451a1b01cb6c, type: 3}
