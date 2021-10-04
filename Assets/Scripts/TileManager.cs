@@ -13,7 +13,7 @@ public class TileManager : MonoBehaviour
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         //sprite.sprite = null;
     }
 
