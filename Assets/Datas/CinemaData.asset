@@ -22,3 +22,5 @@ MonoBehaviour:
     modificator: -0.05
   - type: 1
     modificator: 0.05
+  - type: 0
+    modificator: -0.05
