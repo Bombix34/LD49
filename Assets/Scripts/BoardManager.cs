@@ -208,14 +208,25 @@ public class BoardManager : MonoBehaviour
             TileManager upTile = GetTile(tileRoad.posX + 0, tileRoad.posY + 1);
             if (upTile != null && upTile.CurrentBuilding != null && upTile?.CurrentBuilding.buildingType == BuildingTypes.road)
                 value += 5;
+            else if (tileRoad.posY + 1 >= row)
+                value += 5;
+
             TileManager downTile = GetTile(tileRoad.posX + 0, tileRoad.posY - 1);
             if (downTile != null && downTile.CurrentBuilding != null && downTile?.CurrentBuilding.buildingType == BuildingTypes.road)
                 value += 1;
+            else if (tileRoad.posY - 1 < 0)
+                value += 1;
+
             TileManager leftTile = GetTile(tileRoad.posX - 1, tileRoad.posY + 0);
             if (leftTile != null && leftTile.CurrentBuilding != null && leftTile?.CurrentBuilding.buildingType == BuildingTypes.road)
                 value += 2;
+            else if (tileRoad.posX - 1 < 0 )
+                value += 2;
+
             TileManager rightTile = GetTile(tileRoad.posX + 1, tileRoad.posY + 0);
             if (rightTile != null && rightTile.CurrentBuilding != null && rightTile?.CurrentBuilding.buildingType == BuildingTypes.road)
+                value += 9;
+            else if (tileRoad.posX + 1 >= column)
                 value += 9;
 
             List<RoadData> data = roadDatas.FindAll(x => x.value == value);
