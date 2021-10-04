@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     IEnumerator ReloadSceneCoroutine()
     {
-
+        timer = 10f;
         yield return new WaitForSeconds(10);
         SceneManager.LoadScene("SampleScene");
     }
@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
         if(timer > 0)
         {
             timer -= Time.deltaTime;
-            reloadTimer.GetComponent<UnityEngine.UI.Text>().text = timer.ToString();
+            reloadTimer.GetComponent<UnityEngine.UI.Text>().text = ((int)timer).ToString();
         }
     }
 

@@ -1741,6 +1741,42 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3724953615417317002, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638687757038324765, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638687757038324765, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105419727000962701, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558430206994913199, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580829188794153463, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_Text
+      value: Congratulations, your city is absolutely beautiful fellow citizens.
+        You can help us continue building another neighborhood.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580829188794153463, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5239bcf0c6cf0147b777f5203b65c10, type: 3}
 --- !u!1 &2912073858388566958 stripped
@@ -1752,6 +1788,12 @@ GameObject:
 --- !u!1 &2912073858388566959 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3724953615417317002, guid: f5239bcf0c6cf0147b777f5203b65c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2912073858388566957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2912073858388566960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4901203890079120316, guid: f5239bcf0c6cf0147b777f5203b65c10,
     type: 3}
   m_PrefabInstance: {fileID: 2912073858388566957}
   m_PrefabAsset: {fileID: 0}
@@ -2015,6 +2057,11 @@ PrefabInstance:
       propertyPath: losePanel
       value: 
       objectReference: {fileID: 2912073858388566958}
+    - target: {fileID: 8425480176562903461, guid: f65aa265bf86fea429c8253d275b86fe,
+        type: 3}
+      propertyPath: reloadTimer
+      value: 
+      objectReference: {fileID: 2912073858388566960}
     - target: {fileID: 8425480176562903461, guid: f65aa265bf86fea429c8253d275b86fe,
         type: 3}
       propertyPath: boardManager
