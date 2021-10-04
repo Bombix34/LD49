@@ -188,6 +188,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &692054526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692054527}
+  - component: {fileID: 692054528}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &692054527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692054526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1728, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &692054528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692054526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfe0ba7b40c7904a8c5bba677013ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicGroup: {fileID: 8706407949269961561, guid: dd52443b10200cf4488e419dfdf6109b,
+    type: 2}
+  effectGroup: {fileID: -4955960135572751107, guid: dd52443b10200cf4488e419dfdf6109b,
+    type: 2}
+  ambiantGroup: {fileID: 5057876655842848965, guid: dd52443b10200cf4488e419dfdf6109b,
+    type: 2}
+  m_SoundDataDase: {fileID: 11400000, guid: 08b2bf7e22edf4f3bb5f2fe14f24041e, type: 2}
+  m_ambiantSounds:
+  - {fileID: 11400000, guid: 2e721109447292e4782db0dac7ea0a7a, type: 2}
+  - {fileID: 11400000, guid: 4870c1e4cb74ba6419e2d40093290dfd, type: 2}
+  - {fileID: 11400000, guid: f365decdec478ca43a88ed931fdfd2d5, type: 2}
+  - {fileID: 11400000, guid: 6a23ece50a46d0645858e902f28e6e26, type: 2}
+  musicLoop: {fileID: 8300000, guid: 3cc8e46093b12ce44ba00f360d081c55, type: 3}
 --- !u!1 &875199363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,17 +2289,6 @@ PrefabInstance:
       propertyPath: testY
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
-        type: 3}
-      propertyPath: buildingDatas.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
-        type: 3}
-      propertyPath: buildingDatas.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5830181b8b8528f45bf0628fee5afbe7,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8, type: 3}
 --- !u!1001 &6160047560887698978

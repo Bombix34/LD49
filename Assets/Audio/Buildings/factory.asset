@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf35d8fc3f884871bba8933d5b9d6cd, type: 3}
+  m_Name: factory
+  m_EditorClassIdentifier: 
+  m_AudioMixerGroup: {fileID: -4955960135572751107, guid: dd52443b10200cf4488e419dfdf6109b,
+    type: 2}
+  audioSourceType: 3
+  m_IsLooping: 0
+  m_Clips:
+  - {fileID: 8300000, guid: 1f2b42d46993a2c4b909491ae56d48f0, type: 3}
+  m_Volume:
+    minValue: 0.34992385
+    maxValue: 0.34992385
+  m_Pitch:
+    minValue: 1.0045708
+    maxValue: 1.0045708

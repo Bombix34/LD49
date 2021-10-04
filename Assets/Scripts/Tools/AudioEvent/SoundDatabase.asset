@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208e5a3534dfb4bf79d2fac19c853cc9, type: 3}
+  m_Name: SoundDatabase
+  m_EditorClassIdentifier: 
+  m_Datas:
+  - m_EnumFieldName: sfx_house
+    m_AudioEvent: {fileID: 11400000, guid: 41949c8fe3a073542b7f5fba79c091a6, type: 2}
+  - m_EnumFieldName: sfx_appartments
+    m_AudioEvent: {fileID: 11400000, guid: 095a44462c1adf345a2d8d8cccbabe89, type: 2}
+  - m_EnumFieldName: sfx_office
+    m_AudioEvent: {fileID: 11400000, guid: 19744383140b23e439bed95dd75d3eda, type: 2}
+  - m_EnumFieldName: sfx_mall
+    m_AudioEvent: {fileID: 11400000, guid: 99f3c2a270f496448a98b2c751003514, type: 2}
+  - m_EnumFieldName: sfx_factory
+    m_AudioEvent: {fileID: 11400000, guid: 6cb9a4d513d32a04ba865b2599a6d090, type: 2}
+  - m_EnumFieldName: sfx_powerplant
+    m_AudioEvent: {fileID: 11400000, guid: 26e584a0123581243991364dd7e5942d, type: 2}
+  - m_EnumFieldName: sfx_cinema
+    m_AudioEvent: {fileID: 11400000, guid: 72d8a78ac982e9340a4fc2a99cc79e5a, type: 2}
+  - m_EnumFieldName: sfx_casino
+    m_AudioEvent: {fileID: 11400000, guid: d4e4a680b5c1b4d4f885a69d58eae8d9, type: 2}
+  - m_EnumFieldName: sfx_road
+    m_AudioEvent: {fileID: 11400000, guid: 08d5fe257437715488163b0ba2d20703, type: 2}
+  - m_EnumFieldName: sfx_burn
+    m_AudioEvent: {fileID: 11400000, guid: 0e0c5a003c1f15248bf933e0b127053a, type: 2}
