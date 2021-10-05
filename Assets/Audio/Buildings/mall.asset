@@ -17,10 +17,10 @@ MonoBehaviour:
   audioSourceType: 3
   m_IsLooping: 0
   m_Clips:
-  - {fileID: 8300000, guid: 9c114302ada0d4a46bd5849c8db88179, type: 3}
+  - {fileID: 8300000, guid: 8af4ef1c185b8054f9d6ee88ca8a3691, type: 3}
   m_Volume:
     minValue: 0.781615
-    maxValue: 0.781615
+    maxValue: 0.8841791
   m_Pitch:
-    minValue: 1.0045708
-    maxValue: 1.0045708
+    minValue: 0.79944265
+    maxValue: 1.158417
