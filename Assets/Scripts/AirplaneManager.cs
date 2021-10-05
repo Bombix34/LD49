@@ -28,7 +28,7 @@ public class AirplaneManager : MonoBehaviour
         while(true)
         {
             airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.2f,0.35f))), 0);
-            yield return new WaitForSeconds(Random.Range(20f, 40f));
+            yield return new WaitForSeconds(Random.Range(40f, 60f));
             airplaneText.text = chooseRandomText();
             airPlane.transform.DOMoveX(-Screen.width, 15f);
         }
