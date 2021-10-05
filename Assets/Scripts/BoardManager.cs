@@ -86,10 +86,6 @@ public class BoardManager : MonoBehaviour
         float multiplicatorX = movementHoodPositions[currentIndexSequence].x;
         float multiplicatorY = movementHoodPositions[currentIndexSequence].y;
 
-        foreach(var tile in tiles)
-        {
-            tile.RemoveText();
-        }
         tiles.Clear();
 
         int newSortingOrder = currentHood.sortingOrder;
@@ -105,9 +101,9 @@ public class BoardManager : MonoBehaviour
             multiplicatorY = movementHoodPositions[currentIndexSequence].y;
         }
         if (currentIndexSequence < 2)
-            newSortingOrder++;
+            newSortingOrder += 10;
         else
-            newSortingOrder--;
+            newSortingOrder -= 10;
 
         Vector2 currentBoardWorldPosition = currentHood.board.transform.position;
         Vector2 newPosition = new Vector2(
@@ -164,6 +160,28 @@ public class BoardManager : MonoBehaviour
             curTile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == BuildingTypes.forest));
             yield return new WaitForSeconds(0.05f);
         }
+    }
+
+    private void DebugRandomRoad()
+    {
+        int forestNumber = Random.Range(60, 90);
+        List<TileManager> chosenTiles = new List<TileManager>();
+        for (int i = 0; i < forestNumber; ++i)
+        {
+            int randX = Random.Range(0, column);
+            int randY = Random.Range(0, row);
+            TileManager curTile = GetTile(randX, randY);
+            if (chosenTiles.Contains(curTile))
+            {
+                forestNumber++;
+                continue;
+            }
+            chosenTiles.Add(curTile);
+            if (!curTile.isEmpty)
+                curTile.RemoveBuilding();
+            curTile.ChangeBuilding(buildingDatas.Find(x => x.buildingType == BuildingTypes.road));
+        }
+        CheckRoads();
     }
 
 

@@ -342,7 +342,7 @@ MonoBehaviour:
   activePlayers: []
   totalPlayers: []
   username: bicephal
-  password: oauth:pnhjr49qrrecl11qkhs2vy2h9wqpbj
+  password: oauth:urm87rlrtgmbr851yzxsb2yjnfnqmh
   channelName: bicephal
   chatBox: {fileID: 1175063952}
   boardManager: {fileID: 1512856609}
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_AssetsPPU: 5
   m_RefResolutionX: 480
   m_RefResolutionY: 270
-  m_UpscaleRT: 1
+  m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
@@ -975,6 +975,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2912073857335304662, guid: f5239bcf0c6cf0147b777f5203b65c10,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2912073857345517025, guid: f5239bcf0c6cf0147b777f5203b65c10,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1393,11 +1398,6 @@ PrefabInstance:
     - target: {fileID: 2912073859168972771, guid: f5239bcf0c6cf0147b777f5203b65c10,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996060131083684553, guid: f5239bcf0c6cf0147b777f5203b65c10,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3620270126081255055, guid: f5239bcf0c6cf0147b777f5203b65c10,
@@ -1857,6 +1857,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
         type: 3}
+      propertyPath: padX
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
+        type: 3}
+      propertyPath: padY
+      value: -1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
+        type: 3}
       propertyPath: testX
       value: 34
       objectReference: {fileID: 0}
@@ -1864,6 +1874,16 @@ PrefabInstance:
         type: 3}
       propertyPath: testY
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
+        type: 3}
+      propertyPath: indexPadX
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586294457526665825, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8,
+        type: 3}
+      propertyPath: indexPadY
+      value: 1.81
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d1f91b36574e746a4ffa6fcb0b9fd8, type: 3}
@@ -2151,7 +2171,7 @@ PrefabInstance:
     - target: {fileID: 7158563987038518623, guid: 5252752afd2fca249b45678b97d95de2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 391
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7158563987548654350, guid: 5252752afd2fca249b45678b97d95de2,
         type: 3}

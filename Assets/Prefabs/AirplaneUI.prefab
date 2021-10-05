@@ -112,11 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed0d65ca43ae6f4f85faab2ba8fec74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  twitchChat: {fileID: 0}
   airPlane: {fileID: 7158563987038518623}
   randomPosY: {x: 0, y: 0}
   airplaneTexts:
   - There has been a total of $totalPlayers neighborhood builders until now
-  - There is currently a total of $currentPlayers contributors to this neighborhood
+  - There is currently $currentPlayers contributors to this neighborhood
   - Fill this neighborhood with buildings to win.
   - You can constructs buildings by entering a command in twitch chat.
   - If any of your gauges goes at its lowest, or its highest, you lose !

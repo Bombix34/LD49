@@ -15,12 +15,10 @@ public class TileManager : MonoBehaviour
 
     public List<TileFX> FXs;
     private GameObject currentFX;
-    private TextMeshProUGUI positionFeedback;
 
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        positionFeedback = GetComponentInChildren<TextMeshProUGUI>();
         //sprite.sprite = null;
     }
 
@@ -29,17 +27,9 @@ public class TileManager : MonoBehaviour
        // StartCoroutine(ChangePositionCoroutine());
     }
 
-    private IEnumerator ChangePositionCoroutine()
-    {
-        yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
-        ChangePositionFeedback(new Vector2(posX, posY));
-
-    }
-
     public void ChangeBuilding(BuildingData newBuilding)
     {
         isEmpty = false;
-        positionFeedback.gameObject.SetActive(false);
         sprite.sprite = newBuilding.RandomSprite;
         currentBuilding = newBuilding;
         this.transform.localScale = Vector3.zero;
@@ -51,22 +41,12 @@ public class TileManager : MonoBehaviour
     public void RemoveBuilding()
     {
         isEmpty = true;
-        positionFeedback.gameObject.SetActive(true);
         sprite.sprite = null;
         currentBuilding = null;
         currentFX?.SetActive(false);
         this.transform.DOScale(0f, 1f).SetEase(Ease.OutElastic);
     }
 
-    public void ChangePositionFeedback(Vector2 newPosition)
-    {
-        positionFeedback.text = GetPositionText((int)newPosition.x) + (newPosition.y+1).ToString();
-    }
-
-    public void RemoveText()
-    {
-        positionFeedback.gameObject.SetActive(false);
-    }
 
     public string GetPositionText(int posX)
     {

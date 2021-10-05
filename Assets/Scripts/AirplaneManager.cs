@@ -14,6 +14,8 @@ public class AirplaneManager : MonoBehaviour
 
     private TextMeshProUGUI airplaneText;
 
+    private int currentTextIndex = -1;
+
     private void Start()
     {
         airplaneText = GetComponentInChildren<TextMeshProUGUI>();
@@ -25,16 +27,20 @@ public class AirplaneManager : MonoBehaviour
     {
         while(true)
         {
-            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.1f,0.1f))), 0);
-            yield return new WaitForSeconds(Random.Range(25f, 35f));
+            airPlane.transform.position = new Vector3(initPosition.x,initPosition.y +( initPosition.y * (Random.Range(-0.2f,0.35f))), 0);
+            yield return new WaitForSeconds(Random.Range(20f, 40f));
             airplaneText.text = chooseRandomText();
-            airPlane.transform.DOMoveX(-Screen.width*0.7f, 20f);
+            airPlane.transform.DOMoveX(-Screen.width, 15f);
         }
     }
 
     private string chooseRandomText()
     {
-        string textToChose = airplaneTexts[Random.Range(0, airplaneTexts.Length)];
+        int newIndex = Random.Range(0, airplaneTexts.Length);
+        while(newIndex == currentTextIndex)
+            newIndex = Random.Range(0, airplaneTexts.Length);
+        currentTextIndex = newIndex;
+        string textToChose = airplaneTexts[currentTextIndex];
         if (textToChose.Contains("$currentPlayers"))
         {
             textToChose = textToChose.Replace("$currentPlayers", GameManager.Instance.ActivePlayers.ToString());

@@ -6,13 +6,14 @@ public class SpriteRenderingLayer : MonoBehaviour
 {
 
     SpriteRenderer spriteRender;
-    public float modificator;
+    public int modificator;
 
     protected virtual void Start()
     {
         spriteRender = GetComponentInChildren<SpriteRenderer>();
-        float parentPosY = Mathf.Abs(transform.parent.position.y)*20f;
-        spriteRender.sortingOrder = (int)(((1 / (transform.position.y+17*(1/parentPosY)) * 1000) + modificator));
+        SpriteRenderer boardSprite = GetComponentInParent<SpriteRenderer>();
+        float distance = Vector2.Distance(new Vector2(0, transform.position.y), new Vector2(0, 500));
+        spriteRender.sortingOrder = (int)(distance)  + modificator + boardSprite.sortingOrder;
     }
 
 }
