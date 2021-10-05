@@ -19,8 +19,8 @@ MonoBehaviour:
   m_Clips:
   - {fileID: 8300000, guid: 27015c5b27a9d7b448365da904c634e9, type: 3}
   m_Volume:
-    minValue: 0.87811077
+    minValue: 0.77554667
     maxValue: 0.87811077
   m_Pitch:
-    minValue: 1.0045708
-    maxValue: 1.0045708
+    minValue: 0.8507247
+    maxValue: 1.158417
