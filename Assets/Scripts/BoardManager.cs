@@ -38,14 +38,6 @@ public class BoardManager : MonoBehaviour
         SpawnTiles();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(NewBoard());
-        }
-    }
-
     private IEnumerator NewBoard()
     {
         SoundManager.Instance.DoTransition(true);
