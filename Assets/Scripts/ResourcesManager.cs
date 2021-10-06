@@ -26,7 +26,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         }
         if (building.buildingType == BuildingTypes.house)
             UpdatePopulation(10);
-        else if (building.buildingType == BuildingTypes.appartments)
+        else if (building.buildingType == BuildingTypes.apartments)
             UpdatePopulation(30);
         CheckResources();
     }

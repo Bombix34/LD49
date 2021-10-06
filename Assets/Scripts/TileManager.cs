@@ -24,7 +24,7 @@ public class TileManager : MonoBehaviour
 
     private void Start()
     {
-       // StartCoroutine(ChangePositionCoroutine());
+        
     }
 
     public void ChangeBuilding(BuildingData newBuilding)
@@ -35,7 +35,12 @@ public class TileManager : MonoBehaviour
         this.transform.localScale = Vector3.zero;
         currentFX = FXs.Find(x => x.type == currentBuilding.buildingType).fxObject;
         this.transform.DOScale(1f, 1f).SetEase(Ease.InQuart)
-            .OnComplete(() => currentFX?.SetActive(true));
+            .OnComplete(
+                () =>
+                {
+                    currentFX?.SetActive(true);
+                    currentFX.GetComponent<ParticleRenderingLayer>().SetSortingOrder(sprite.sortingOrder + 1);
+                });
     }
 
     public void RemoveBuilding()
@@ -90,5 +95,6 @@ public class TileManager : MonoBehaviour
 public struct TileFX
 {
     public GameObject fxObject;
+    public ParticleRenderingLayer particleRenderer;
     public BuildingTypes type;
 }

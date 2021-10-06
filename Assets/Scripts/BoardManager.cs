@@ -38,6 +38,16 @@ public class BoardManager : MonoBehaviour
         SpawnTiles();
     }
 
+    /*
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(NewBoard());
+        }
+    }
+    */
+
     private IEnumerator NewBoard()
     {
         SoundManager.Instance.DoTransition(true);
@@ -268,7 +278,7 @@ public class BoardManager : MonoBehaviour
     {
         switch (type)
         {
-            case BuildingTypes.appartments:
+            case BuildingTypes.apartments:
                 SoundManager.Instance.PlaySound(AudioFieldEnum.sfx_appartments);
                 break;
             case BuildingTypes.casino:

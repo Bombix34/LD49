@@ -27,7 +27,7 @@ public struct BuildingModificator
 public enum BuildingTypes
 {
     house,
-    appartments,
+    apartments,
     office,
     mall,
     factory,

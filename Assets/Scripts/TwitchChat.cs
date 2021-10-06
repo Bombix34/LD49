@@ -145,10 +145,10 @@ public class TwitchChat : MonoBehaviour
             boardManager.SpawnBuilding(position, BuildingTypes.house);
             return true;
         }
-        else if (ChatInputs.Contains("!appartments"))
+        else if (ChatInputs.Contains("!apartments"))
         {
             Vector2 position = GetPositionFromMessage(ChatInputs, 11);
-            boardManager.SpawnBuilding(position, BuildingTypes.appartments);
+            boardManager.SpawnBuilding(position, BuildingTypes.apartments);
             return true;
         }
         else if (ChatInputs.Contains("!office"))
