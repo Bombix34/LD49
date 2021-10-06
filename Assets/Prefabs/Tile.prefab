@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4880295747117243663}
+  - component: {fileID: 8857699258731126316}
   m_Layer: 0
   m_Name: Factory_FX
   m_TagString: Untagged
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 6479764559442313588}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8857699258731126316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615643629956771441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c602bdaa913dc3b4fab6802bd6cba7f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 346865765041145083}
+  - {fileID: 8783320034852130091}
 --- !u!1 &3119180662999901479
 GameObject:
   m_ObjectHideFlags: 0
@@ -9646,6 +9662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8919517978866173970}
+  - component: {fileID: 7312328850926233979}
   m_Layer: 0
   m_Name: Powerplant_FX
   m_TagString: Untagged
@@ -9668,6 +9685,20 @@ Transform:
   m_Father: {fileID: 6479764559442313588}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7312328850926233979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6167190308636140520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c602bdaa913dc3b4fab6802bd6cba7f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 5441777439584619239}
 --- !u!1 &6479764559442313546
 GameObject:
   m_ObjectHideFlags: 0
@@ -9720,8 +9751,10 @@ MonoBehaviour:
   posY: 0
   FXs:
   - fxObject: {fileID: 1615643629956771441}
+    particleRenderer: {fileID: 8857699258731126316}
     type: 4
   - fxObject: {fileID: 6167190308636140520}
+    particleRenderer: {fileID: 7312328850926233979}
     type: 5
 --- !u!114 &5153629910412390589
 MonoBehaviour:

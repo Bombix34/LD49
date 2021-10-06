@@ -5812,7 +5812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!appartments'
+  m_text: '!apartments'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d25d91055589ce438fa133e001194f1, type: 2}
   m_sharedMaterial: {fileID: -1479784088535080719, guid: 0d25d91055589ce438fa133e001194f1,
@@ -5840,7 +5840,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
+  m_fontSize: 25.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

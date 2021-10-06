@@ -2018,6 +2018,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7158563986320876969, guid: 5252752afd2fca249b45678b97d95de2,
+        type: 3}
+      propertyPath: twitchChat
+      value: 
+      objectReference: {fileID: 901278944}
     - target: {fileID: 7158563986320876974, guid: 5252752afd2fca249b45678b97d95de2,
         type: 3}
       propertyPath: m_Pivot.x
