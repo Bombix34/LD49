@@ -36,7 +36,6 @@ public class TwitchChat : MonoBehaviour
         Connect();
         /*
         GameInputs("!house J4");
-        GameInputs("!appartments A2");
         GameInputs("!office A5");
         GameInputs("!mall C2");
         GameInputs("!factory G6");
@@ -147,7 +146,7 @@ public class TwitchChat : MonoBehaviour
         }
         else if (ChatInputs.Contains("!apartments"))
         {
-            Vector2 position = GetPositionFromMessage(ChatInputs, 11);
+            Vector2 position = GetPositionFromMessage(ChatInputs, 10);
             boardManager.SpawnBuilding(position, BuildingTypes.apartments);
             return true;
         }
