@@ -342,7 +342,7 @@ MonoBehaviour:
   activePlayers: []
   totalPlayers: []
   username: bicephal
-  password: oauth:urm87rlrtgmbr851yzxsb2yjnfnqmh
+  password: oauth:jcqk40a9ogbmy823vomb70sz9hoaer
   channelName: bicephal
   chatBox: {fileID: 1175063952}
   boardManager: {fileID: 1512856609}
